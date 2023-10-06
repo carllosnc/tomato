@@ -1,8 +1,6 @@
 # Tomato Pomodoro
 
-> Work and relax
-
-[![Flutter Starter](https://github.com/C4co/flutter_starter/actions/workflows/dart.yml/badge.svg)](https://github.com/C4co/flutter_starter/actions/workflows/dart.yml)
+> Pomodoro timer app
 
 ## Clone
 

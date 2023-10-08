@@ -38,8 +38,8 @@ dependencies:
   http: ^0.13.5
   intl: ^0.18.1
   json_annotation: ^4.8.1
-  font_awesome_flutter: ^10.5.0
   shared_preferences: ^2.2.0
+  vibration: ^1.8.2
 
 dev_dependencies:
   flutter_test:
@@ -72,6 +72,7 @@ flutter:
   assets:
     - ./assets/images/welcome.png
     - ./assets/images/logo.png
+    - ./assets/sounds/alert.mp3
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

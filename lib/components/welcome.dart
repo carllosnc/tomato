@@ -55,10 +55,9 @@ class Welcome extends StatelessWidget {
                       SharedPrefs().prefs.setBool('welcome', false);
                       onPressed();
                     },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.grey[900],
+                    child: const Text(
+                      "COMEÇAR!",
                     ),
-                    child: const Text("COMEÇAR!"),
                   ),
                 )
               ],

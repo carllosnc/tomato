@@ -6,12 +6,6 @@ appTheme({required bool isLight}) => ThemeData(
       colorSchemeSeed: Colors.yellowAccent,
       fontFamily: 'SFProDisplay',
       scaffoldBackgroundColor: Colors.black,
-      filledButtonTheme: FilledButtonThemeData(
-        style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(Colors.grey[900]),
-          foregroundColor: MaterialStateProperty.all(Colors.white),
-        ),
-      ),
       appBarTheme: const AppBarTheme(
         backgroundColor: Colors.black,
         foregroundColor: Colors.white,

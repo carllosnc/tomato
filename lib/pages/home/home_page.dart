@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
 import '/imports/app.dart';
 
@@ -11,61 +10,6 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   bool firstTime = SharedPrefs().prefs.getBool('welcome') ?? true;
-
-  Timer? countdownTimer;
-
-  Duration duration = const Duration(seconds: 60);
-  Duration currentTime = const Duration(seconds: 60);
-  Duration oneSec = const Duration(seconds: 1);
-  bool isRunning = false;
-  num percent = 0;
-
-  void action() {
-    if (isRunning) {
-      stopTimer();
-    } else {
-      startTimer();
-    }
-  }
-
-  void startTimer() {
-    setState(() {
-      isRunning = true;
-    });
-
-    countdownTimer = Timer.periodic(oneSec, (timer) {
-      if (duration.inSeconds == 0) {
-        timer.cancel();
-        reset();
-      } else {
-        tictac();
-      }
-    });
-  }
-
-  void stopTimer() {
-    setState(() {
-      isRunning = false;
-    });
-
-    countdownTimer!.cancel();
-  }
-
-  void tictac() {
-    setState(() {
-      duration = duration - oneSec;
-
-      percent = 1 - (duration.inSeconds / currentTime.inSeconds);
-    });
-  }
-
-  void reset() {
-    setState(() {
-      duration = currentTime;
-      percent = 0;
-      isRunning = false;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -95,19 +39,25 @@ class _HomePageState extends State<HomePage> {
         actions: [
           IconButton(
             icon: const Icon(Icons.add),
-            onPressed: () {},
+            onPressed: () {
+              addTask(context);
+            },
           ),
         ],
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {},
-        label: const Text("Timers"),
+        label: const Text("Tasks"),
         icon: const Icon(Icons.timer),
       ),
-      body: const Pomo(
-        workDuration: Duration(seconds: 10),
-        relaxDuration: Duration(seconds: 5),
-        name: "Esturdar C#",
+      body: const Center(
+        child: SingleChildScrollView(
+          child: Pomo(
+            workDuration: Duration(seconds: 10),
+            relaxDuration: Duration(seconds: 5),
+            name: "Esturdar C#",
+          ),
+        ),
       ),
     );
   }

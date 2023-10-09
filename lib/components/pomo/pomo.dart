@@ -165,9 +165,9 @@ class PomoState extends State<Pomo> {
   String showStatus() {
     if (isRunning) {
       if (pomoType == PomoType.work) {
-        return "🤔  Time to focus";
+        return "👨‍💻 Time to focus";
       } else {
-        return "😎  Relaxing";
+        return "🧘‍♂️ Relaxing";
       }
     }
 

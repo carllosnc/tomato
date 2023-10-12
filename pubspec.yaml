@@ -73,6 +73,7 @@ flutter:
     - ./assets/images/welcome.png
     - ./assets/images/logo.png
     - ./assets/sounds/alert.mp3
+    - shorebird.yaml
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

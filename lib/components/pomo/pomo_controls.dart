@@ -1,7 +1,16 @@
-part of './pomo.dart';
+import 'package:flutter/material.dart';
+import '/imports/app.dart';
 
-extension PomoControls on PomoState {
-  Row controls() {
+class PomoControls extends StatefulWidget {
+  const PomoControls({super.key});
+
+  @override
+  State<PomoControls> createState() => _PomoControlsState();
+}
+
+class _PomoControlsState extends State<PomoControls> with TimerMixin {
+  @override
+  Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -10,26 +19,30 @@ extension PomoControls on PomoState {
           tooltip: "Autoplay",
           style: ButtonStyle(
             backgroundColor: MaterialStateProperty.all<Color>(
-              autoplay ? Colors.yellowAccent : Colors.white.withOpacity(0.20),
+              timer.autoplay
+                  ? Colors.yellowAccent
+                  : Colors.white.withOpacity(0.20),
             ),
           ),
           icon: Icon(
             Icons.loop,
-            color: autoplay ? Colors.black : Colors.white,
+            color: timer.autoplay ? Colors.black : Colors.white,
           ),
           iconSize: 25,
-          onPressed: toggleAutoplay,
+          onPressed: () {
+            timer.toggleAutoplay(context);
+          },
         ),
 
         IconButton(
-          tooltip: isRunning ? "Pause" : "Play",
+          tooltip: timer.isRunning ? "Pause" : "Play",
           icon: Icon(
-            isRunning ? Icons.pause : Icons.play_arrow,
+            timer.isRunning ? Icons.pause : Icons.play_arrow,
             color: Colors.white,
           ),
           iconSize: 80,
           onPressed: () {
-            toggleAction();
+            timer.toggleAction();
           },
         ),
 
@@ -47,7 +60,7 @@ extension PomoControls on PomoState {
           ),
           iconSize: 25,
           onPressed: () {
-            resetAll();
+            timer.resetAll(context: context);
           },
         ),
       ],

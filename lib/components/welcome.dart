@@ -4,7 +4,10 @@ import '/imports/app.dart';
 class Welcome extends StatelessWidget {
   final Function onPressed;
 
-  const Welcome({super.key, required this.onPressed});
+  const Welcome({
+    super.key,
+    required this.onPressed,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +35,7 @@ class Welcome extends StatelessWidget {
                 ),
                 const SizedBox(height: 30),
                 const Text(
-                  'Hora de focar.',
+                  'Time to focus.',
                   style: TextStyle(
                     fontSize: 25,
                     color: Colors.white,
@@ -40,7 +43,7 @@ class Welcome extends StatelessWidget {
                 ),
                 const SizedBox(height: 10),
                 Text(
-                  'Tomato é o que você precisa para organizar seu tempo e focar no que importa.',
+                  "It's simple: Focus. Break. Repeat.",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 16,

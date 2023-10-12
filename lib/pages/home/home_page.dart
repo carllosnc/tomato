@@ -25,7 +25,9 @@ class _HomePageState extends State<HomePage> {
 
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         title: Row(
+          mainAxisSize: MainAxisSize.min,
           children: [
             //logo and title
             Image.asset(
@@ -36,27 +38,17 @@ class _HomePageState extends State<HomePage> {
             const Text("Tomato"),
           ],
         ),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.add),
-            onPressed: () {
-              addTask(context);
-            },
-          ),
-        ],
       ),
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {},
-        label: const Text("Tasks"),
+        onPressed: () {
+          updateTask(context);
+        },
+        label: const Text("Task"),
         icon: const Icon(Icons.timer),
       ),
       body: const Center(
         child: SingleChildScrollView(
-          child: Pomo(
-            workDuration: Duration(seconds: 10),
-            relaxDuration: Duration(seconds: 5),
-            name: "Esturdar C#",
-          ),
+          child: Pomo(),
         ),
       ),
     );

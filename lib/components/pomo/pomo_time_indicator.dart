@@ -1,7 +1,17 @@
-part of './pomo.dart';
+import 'package:flutter/material.dart';
+import '/imports/app.dart';
 
-extension PomoTimeIndicator on PomoState {
-  Center timeIndicator() {
+class PomoTimerIndicator extends StatefulWidget {
+  const PomoTimerIndicator({super.key});
+
+  @override
+  State<PomoTimerIndicator> createState() => _PomoTimerIndicatorState();
+}
+
+class _PomoTimerIndicatorState extends State<PomoTimerIndicator>
+    with TimerMixin {
+  @override
+  Widget build(BuildContext context) {
     return Center(
       child: Stack(
         children: [
@@ -9,7 +19,7 @@ extension PomoTimeIndicator on PomoState {
             width: 300,
             height: 300,
             child: TweenAnimationBuilder<double>(
-              tween: Tween(begin: 0.0, end: percent.toDouble()),
+              tween: Tween(begin: 0.0, end: timer.percent.toDouble()),
               duration: const Duration(seconds: 1),
               builder: (context, double value, child) {
                 return CircularProgressIndicator(
@@ -33,11 +43,14 @@ extension PomoTimeIndicator on PomoState {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    formatDuration(duration),
+                    timer.formatDuration(timer.currentDuration),
                     style: TextStyle(
                       fontSize: 80,
-                      fontWeight: isRunning ? FontWeight.w900 : FontWeight.w100,
-                      color: isRunning ? Colors.yellowAccent : Colors.white54,
+                      fontWeight:
+                          timer.isRunning ? FontWeight.w900 : FontWeight.w100,
+                      color: timer.isRunning
+                          ? Colors.yellowAccent
+                          : Colors.white54,
                     ),
                   ),
                 ],

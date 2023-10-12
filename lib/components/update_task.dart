@@ -1,8 +1,19 @@
 import 'package:flutter/material.dart';
+import '/imports/app.dart';
 
-addTask(BuildContext context) {
+void showSnackBar(BuildContext context, String message) {
+  ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(
+      content: Text(message),
+      duration: const Duration(seconds: 1),
+      backgroundColor: Colors.greenAccent,
+    ),
+  );
+}
+
+updateTask(BuildContext context) {
   int focusTime = 25;
-  int relaxTime = 5;
+  int breakTime = 5;
   TextEditingController taskNameController = TextEditingController();
   final formKey = GlobalKey<FormState>();
 
@@ -21,7 +32,7 @@ addTask(BuildContext context) {
                 child: Column(
                   children: [
                     const Text(
-                      "CREATE A TASK",
+                      "UPDATE TASK",
                       style: TextStyle(
                         fontSize: 13,
                         letterSpacing: 6,
@@ -29,7 +40,6 @@ addTask(BuildContext context) {
                       ),
                     ),
                     const SizedBox(height: 20),
-                    //rounded textfield
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: ConstrainedBox(
@@ -48,10 +58,13 @@ addTask(BuildContext context) {
                             contentPadding:
                                 const EdgeInsets.symmetric(horizontal: 25),
                             hintText: "Task Name",
-                            //background color
+                            //text white
+                            hintStyle: TextStyle(
+                              color: Colors.white.withOpacity(0.4),
+                              fontWeight: FontWeight.normal,
+                            ),
                             fillColor: Colors.white.withOpacity(0.1),
                             filled: true,
-                            //border
                             enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(50),
                               borderSide: BorderSide.none,
@@ -60,12 +73,14 @@ addTask(BuildContext context) {
                               borderRadius: BorderRadius.circular(50),
                             ),
                           ),
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                     ),
-
                     const SizedBox(height: 30),
-
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -93,9 +108,7 @@ addTask(BuildContext context) {
                         ),
                       ],
                     ),
-
                     const SizedBox(height: 20),
-
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -103,7 +116,7 @@ addTask(BuildContext context) {
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 20),
                           child: Text(
-                            "😎 Relax time: ${relaxTime.toString()} min",
+                            "😎 Break time: ${breakTime.toString()} min",
                             style: const TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.w400,
@@ -112,21 +125,19 @@ addTask(BuildContext context) {
                           ),
                         ),
                         Slider(
-                          value: relaxTime.toDouble(),
+                          value: breakTime.toDouble(),
                           min: 1,
                           max: 60,
-                          label: relaxTime.toString(),
+                          label: breakTime.toString(),
                           onChanged: (double value) {
                             setState(() {
-                              relaxTime = value.toInt();
+                              breakTime = value.toInt();
                             });
                           },
                         ),
                       ],
                     ),
-
                     const SizedBox(height: 20),
-
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: SizedBox(
@@ -134,10 +145,17 @@ addTask(BuildContext context) {
                         child: FilledButton(
                           onPressed: () {
                             if (formKey.currentState!.validate()) {
-                              print("adding new here!");
+                              Navigator.of(context).pop();
+                              timer.resetAll(
+                                dialogTitle: "The task will be updated",
+                                context: context,
+                                newName: taskNameController.text,
+                                newWorkDuration: Duration(minutes: focusTime),
+                                newBreakDuration: Duration(minutes: breakTime),
+                              );
                             }
                           },
-                          child: const Text("Create Task"),
+                          child: const Text("Update Task"),
                         ),
                       ),
                     )

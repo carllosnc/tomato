@@ -182,9 +182,9 @@ class _Timer extends ChangeNotifier {
   // This function is used to format the duration description
   String formatDurationDescription(Duration d) {
     if (d.inSeconds < 60) {
-      return "${d.inSeconds}s";
+      return "${d.inSeconds} s";
     } else {
-      return "${d.inMinutes}min";
+      return "${d.inMinutes} min";
     }
   }
 }

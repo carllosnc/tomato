@@ -12,10 +12,12 @@ void showSnackBar(BuildContext context, String message) {
 }
 
 updateTask(BuildContext context) {
-  int focusTime = 25;
-  int breakTime = 5;
   TextEditingController taskNameController = TextEditingController();
   final formKey = GlobalKey<FormState>();
+
+  taskNameController.text = timer.name;
+  int focusTime = timer.workDuration.inMinutes;
+  int breakTime = timer.breakDuration.inMinutes;
 
   showModalBottomSheet(
     context: context,

@@ -59,7 +59,7 @@ class Welcome extends StatelessWidget {
                       onPressed();
                     },
                     child: const Text(
-                      "COMEÇAR!",
+                      "START NOW",
                     ),
                   ),
                 )

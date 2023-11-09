@@ -101,9 +101,7 @@ class _Timer extends ChangeNotifier {
     ScaffoldMessenger.of(context).hideCurrentSnackBar();
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        backgroundColor: autoplay
-            ? Theme.of(context).colorScheme.primary
-            : Theme.of(context).colorScheme.secondary,
+        backgroundColor: autoplay ? Theme.of(context).colorScheme.primary : Theme.of(context).colorScheme.secondary,
         content: Text(
           autoplay ? "Autoplay enabled" : "Autoplay disabled",
         ),
@@ -113,12 +111,7 @@ class _Timer extends ChangeNotifier {
   }
 
   // This function is used to reset all the timer
-  void resetAll(
-      {required BuildContext context,
-      Duration? newWorkDuration,
-      Duration? newBreakDuration,
-      String? newName,
-      String? dialogTitle}) {
+  void resetAll({required BuildContext context, Duration? newWorkDuration, Duration? newBreakDuration, String? newName, String? dialogTitle}) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -173,8 +166,7 @@ class _Timer extends ChangeNotifier {
   // This function is used to format the duration
   String formatDuration(Duration d) {
     String twoDigitMinutes = d.inMinutes.remainder(60).toString();
-    String twoDigitSeconds =
-        d.inSeconds.remainder(60).toString().padLeft(2, '0');
+    String twoDigitSeconds = d.inSeconds.remainder(60).toString().padLeft(2, '0');
 
     return "$twoDigitMinutes:$twoDigitSeconds";
   }

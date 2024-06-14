@@ -2,41 +2,16 @@
 
 > Pomodoro timer app
 
-## Clone
-
-```
-gh repo clone C4co/flutter_starter app_name
-```
-
-## Layers
-
-- **components**: shared widgets
-- **core**: routes, themes, extras, preferences
-- **data**: repositories, services
-- **domain**: entities, contracts
-- **notifiers**: global states
-- **pages**: apo pages
-- **test**: units, widget tests
-- **imports**: all imports
-
-## What's inside
-
-- go routes
-- json serialize
-- shared preferences
-- font_awesome_flutter
-- intl
-
 ## Commands
 
 Build runner
 ```
-flutter pub run build_runner build --delete-conflicting-outputs
+dart run build_runner build --delete-conflicting-outputs
 ```
 
 Launcher icon
 ```
-flutter pub run flutter_launcher_icons
+dart run flutter_launcher_icons dart
 ```
 
 Spash

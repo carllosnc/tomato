@@ -19,9 +19,7 @@ class _PomoControlsState extends State<PomoControls> with TimerMixin {
           tooltip: "Autoplay",
           style: ButtonStyle(
             backgroundColor: MaterialStateProperty.all<Color>(
-              timer.autoplay
-                  ? Colors.yellowAccent
-                  : Colors.white.withOpacity(0.20),
+              timer.autoplay ? Colors.yellowAccent : Colors.white.withOpacity(0.20),
             ),
           ),
           icon: Icon(

@@ -101,7 +101,9 @@ class _Timer extends ChangeNotifier {
     ScaffoldMessenger.of(context).hideCurrentSnackBar();
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        backgroundColor: autoplay ? Theme.of(context).colorScheme.primary : Theme.of(context).colorScheme.secondary,
+        backgroundColor: autoplay //
+            ? Theme.of(context).colorScheme.primary
+            : Theme.of(context).colorScheme.secondary,
         content: Text(
           autoplay ? "Autoplay enabled" : "Autoplay disabled",
         ),
@@ -111,7 +113,13 @@ class _Timer extends ChangeNotifier {
   }
 
   // This function is used to reset all the timer
-  void resetAll({required BuildContext context, Duration? newWorkDuration, Duration? newBreakDuration, String? newName, String? dialogTitle}) {
+  void resetAll({
+    required BuildContext context,
+    Duration? newWorkDuration,
+    Duration? newBreakDuration,
+    String? newName,
+    String? dialogTitle,
+  }) {
     showDialog(
       context: context,
       builder: (BuildContext context) {

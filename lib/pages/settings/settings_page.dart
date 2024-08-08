@@ -29,12 +29,10 @@ class _SettingsPageState extends State<SettingsPage> {
             title: Text(_lightTheme ? 'Light Theme' : 'Dark Theme'),
             trailing: Switch(
               value: _lightTheme,
-              thumbIcon: MaterialStateProperty.all(
+              thumbIcon: WidgetStateProperty.all(
                 Icon(
                   _lightTheme ? Icons.light_mode : Icons.dark_mode,
-                  color: _lightTheme
-                      ? Theme.of(context).colorScheme.primary
-                      : Theme.of(context).colorScheme.onPrimary,
+                  color: _lightTheme ? Theme.of(context).colorScheme.primary : Theme.of(context).colorScheme.onPrimary,
                 ),
               ),
               onChanged: (bool value) {

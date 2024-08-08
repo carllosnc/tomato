@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-appTheme({required bool isLight}) => ThemeData(
+appTheme() => ThemeData(
       useMaterial3: true,
       brightness: Brightness.dark,
       colorSchemeSeed: Colors.yellowAccent,

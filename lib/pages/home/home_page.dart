@@ -1,28 +1,12 @@
 import 'package:flutter/material.dart';
-import '/imports/app.dart';
+import '/imports.dart';
+import 'components/big_button.dart';
 
-class HomePage extends StatefulWidget {
+class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  bool firstTime = SharedPrefs().prefs.getBool('welcome') ?? true;
-
-  @override
   Widget build(BuildContext context) {
-    if (firstTime) {
-      return Welcome(
-        onPressed: () {
-          setState(() {
-            firstTime = false;
-          });
-        },
-      );
-    }
-
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -39,16 +23,34 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {
-          updateTask(context);
-        },
-        label: const Text("Task"),
-        icon: const Icon(Icons.timer),
-      ),
-      body: const Center(
-        child: SingleChildScrollView(
-          child: Pomo(),
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: 50,
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              BigButton(
+                icon: Icons.timer_outlined,
+                title: "Focus and Break",
+                description:
+                    "Configure your focus and break timers for just one task",
+                onTap: () {
+                  router.push('/focus_break');
+                },
+              ),
+              const SizedBox(height: 20),
+              BigButton(
+                icon: Icons.list_alt_outlined,
+                title: "Multiple Tasks",
+                description:
+                    "Create multiple tasks and break timers for multiple tasks",
+                onTap: () {},
+              ),
+            ],
+          ),
         ),
       ),
     );

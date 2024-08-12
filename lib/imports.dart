@@ -1,5 +1,5 @@
 export 'shared_state/shared_state.dart';
-export 'shared_state/timer_focus_state.dart';
+export 'shared_state/focus_break_state.dart';
 
 //Pages
 export '/pages/focus_break/focus_break_page.dart';

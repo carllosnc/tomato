@@ -14,7 +14,7 @@ class _FocusBreakHeaderState extends State<FocusBreakHeader> with SharedState {
     return Column(
       children: [
         Text(
-          timerFocusState.showStatus(),
+          focusBreakState.showStatus(),
           style: const TextStyle(
             fontSize: 30,
             fontWeight: FontWeight.w300,
@@ -22,7 +22,7 @@ class _FocusBreakHeaderState extends State<FocusBreakHeader> with SharedState {
         ),
         const SizedBox(height: 30),
         Text(
-          timerFocusState.name.toUpperCase(),
+          focusBreakState.name.toUpperCase(),
           style: TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.w800,
@@ -35,7 +35,7 @@ class _FocusBreakHeaderState extends State<FocusBreakHeader> with SharedState {
           spacing: 10,
           children: [
             Text(
-              "Focus: ${timerFocusState.formatDurationDescription(timerFocusState.workDuration)}",
+              "Focus: ${focusBreakState.formatDurationDescription(focusBreakState.workDuration)}",
               textAlign: TextAlign.center,
               style: const TextStyle(
                 fontSize: 18,
@@ -45,7 +45,7 @@ class _FocusBreakHeaderState extends State<FocusBreakHeader> with SharedState {
             ),
             const Text("•"),
             Text(
-              "Break: ${timerFocusState.formatDurationDescription(timerFocusState.breakDuration)}",
+              "Break: ${focusBreakState.formatDurationDescription(focusBreakState.breakDuration)}",
               textAlign: TextAlign.center,
               style: const TextStyle(
                 fontSize: 18,

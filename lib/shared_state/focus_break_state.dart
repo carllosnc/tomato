@@ -5,7 +5,7 @@ import 'package:vibration/vibration.dart';
 
 enum ActionTime { work, relax }
 
-class _TimeFocusState extends ChangeNotifier {
+class _FocusBreakState extends ChangeNotifier {
   Timer? countdownTimer;
   ActionTime actionType = ActionTime.work;
   bool isRunning = false;
@@ -190,4 +190,4 @@ class _TimeFocusState extends ChangeNotifier {
   }
 }
 
-var timerFocusState = _TimeFocusState();
+var focusBreakState = _FocusBreakState();

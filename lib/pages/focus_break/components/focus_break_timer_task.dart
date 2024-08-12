@@ -15,9 +15,9 @@ focusBreakTask(BuildContext context) {
   TextEditingController taskNameController = TextEditingController();
   final formKey = GlobalKey<FormState>();
 
-  taskNameController.text = timerFocusState.name;
-  int focusTime = timerFocusState.workDuration.inMinutes;
-  int breakTime = timerFocusState.breakDuration.inMinutes;
+  taskNameController.text = focusBreakState.name;
+  int focusTime = focusBreakState.workDuration.inMinutes;
+  int breakTime = focusBreakState.breakDuration.inMinutes;
 
   showModalBottomSheet(
     context: context,
@@ -148,7 +148,7 @@ focusBreakTask(BuildContext context) {
                           onPressed: () {
                             if (formKey.currentState!.validate()) {
                               Navigator.of(context).pop();
-                              timerFocusState.resetAll(
+                              focusBreakState.resetAll(
                                 dialogTitle: "The task will be updated",
                                 context: context,
                                 newName: taskNameController.text,

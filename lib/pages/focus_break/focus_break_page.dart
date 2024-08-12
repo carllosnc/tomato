@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'components/focus_break_timer.dart';
 import 'components/focus_break_timer_task.dart';
+import '/imports.dart';
 
 class FocusBreakPage extends StatefulWidget {
   const FocusBreakPage({super.key});
@@ -9,12 +10,18 @@ class FocusBreakPage extends StatefulWidget {
   State<FocusBreakPage> createState() => _FocusBreakPageState();
 }
 
-class _FocusBreakPageState extends State<FocusBreakPage> {
+class _FocusBreakPageState extends State<FocusBreakPage> with SharedState {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
+        leading: IconButton(
+          onPressed: () {
+            focusBreakState.resetAll(context: context);
+          },
+          icon: const Icon(Icons.close),
+        ),
         title: const Text(
           "FOCUS AND BREAK",
           style: TextStyle(

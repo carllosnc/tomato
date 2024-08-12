@@ -19,7 +19,7 @@ class _FocusBreakIndicatorState extends State<FocusBreakIndicator>
             width: 300,
             height: 300,
             child: TweenAnimationBuilder<double>(
-              tween: Tween(begin: 0.0, end: timerFocusState.percent.toDouble()),
+              tween: Tween(begin: 0.0, end: focusBreakState.percent.toDouble()),
               duration: const Duration(seconds: 1),
               builder: (context, double value, child) {
                 return CircularProgressIndicator(
@@ -43,14 +43,14 @@ class _FocusBreakIndicatorState extends State<FocusBreakIndicator>
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    timerFocusState
-                        .formatDuration(timerFocusState.currentDuration),
+                    focusBreakState
+                        .formatDuration(focusBreakState.currentDuration),
                     style: TextStyle(
                       fontSize: 80,
-                      fontWeight: timerFocusState.isRunning
+                      fontWeight: focusBreakState.isRunning
                           ? FontWeight.w900
                           : FontWeight.w100,
-                      color: timerFocusState.isRunning
+                      color: focusBreakState.isRunning
                           ? Colors.yellowAccent
                           : Colors.white54,
                     ),

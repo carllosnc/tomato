@@ -20,30 +20,30 @@ class _FocusBreakControlsState extends State<FocusBreakControls>
           tooltip: "Autoplay",
           style: ButtonStyle(
             backgroundColor: WidgetStateProperty.all<Color>(
-              timerFocusState.autoplay
+              focusBreakState.autoplay
                   ? Colors.yellowAccent
                   : Colors.white.withOpacity(0.20),
             ),
           ),
           icon: Icon(
             Icons.loop,
-            color: timerFocusState.autoplay ? Colors.black : Colors.white,
+            color: focusBreakState.autoplay ? Colors.black : Colors.white,
           ),
           iconSize: 25,
           onPressed: () {
-            timerFocusState.toggleAutoplay(context);
+            focusBreakState.toggleAutoplay(context);
           },
         ),
 
         IconButton(
-          tooltip: timerFocusState.isRunning ? "Pause" : "Play",
+          tooltip: focusBreakState.isRunning ? "Pause" : "Play",
           icon: Icon(
-            timerFocusState.isRunning ? Icons.pause : Icons.play_arrow,
+            focusBreakState.isRunning ? Icons.pause : Icons.play_arrow,
             color: Colors.white,
           ),
           iconSize: 80,
           onPressed: () {
-            timerFocusState.toggleAction();
+            focusBreakState.toggleAction();
           },
         ),
 
@@ -61,7 +61,7 @@ class _FocusBreakControlsState extends State<FocusBreakControls>
           ),
           iconSize: 25,
           onPressed: () {
-            timerFocusState.resetAll(context: context);
+            focusBreakState.resetAll(context: context);
           },
         ),
       ],

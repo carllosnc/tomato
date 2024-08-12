@@ -14,7 +14,7 @@ Launcher icon
 dart run flutter_launcher_icons dart
 ```
 
-Spash
+Splash screen
 ```
 dart run flutter_native_splash:create
 ```

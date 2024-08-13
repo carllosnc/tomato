@@ -119,6 +119,7 @@ class _FocusBreakState extends ChangeNotifier {
     Duration? newBreakDuration,
     String? newName,
     String? dialogTitle,
+    VoidCallback? onReset,
   }) {
     showDialog(
       context: context,
@@ -149,6 +150,7 @@ class _FocusBreakState extends ChangeNotifier {
                 autoplay = false;
 
                 notifyListeners();
+                onReset?.call();
               },
               child: const Text("Reset"),
             ),

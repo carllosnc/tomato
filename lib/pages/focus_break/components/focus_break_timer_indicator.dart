@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import '/imports.dart';
+import 'package:flutter/material.dart';
 
 class FocusBreakIndicator extends StatefulWidget {
   const FocusBreakIndicator({super.key});

@@ -24,20 +24,13 @@ class _FocusBreakPageState extends State<FocusBreakPage> with SharedState {
               focusBreakState.resetAll(
                 context: context,
                 onReset: () {
-                  context.go("/");
+                  context.go("$homePath/");
                 },
               );
             },
-            icon: const Icon(Icons.close),
+            icon: const Icon(Icons.arrow_back),
           ),
-          title: const Text(
-            "FOCUS AND BREAK",
-            style: TextStyle(
-              fontSize: 13,
-              fontWeight: FontWeight.bold,
-              letterSpacing: 2,
-            ),
-          ),
+          title: "FOCUS AND BREAK".title,
         ),
         floatingActionButton: FloatingActionButton.extended(
           onPressed: () {

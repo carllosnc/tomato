@@ -27,58 +27,32 @@ focusBreakTask(BuildContext context) {
           return Form(
             key: formKey,
             child: Padding(
-              padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
+              padding: const EdgeInsets.all(20),
               child: SizedBox(
                 height: 600,
                 width: double.infinity,
                 child: Column(
                   children: [
-                    const Text(
-                      "UPDATE TASK",
-                      style: TextStyle(
-                        fontSize: 13,
-                        letterSpacing: 6,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
+                    "Update Task".title,
                     const SizedBox(height: 20),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: ConstrainedBox(
-                        constraints: const BoxConstraints(
-                          minHeight: 50,
+                    ConstrainedBox(
+                      constraints: const BoxConstraints(
+                        minHeight: 50,
+                      ),
+                      child: TextFormField(
+                        controller: taskNameController,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter some text';
+                          }
+                          return null;
+                        },
+                        decoration: textFieldDecoration(
+                          hintText: "Task Name",
                         ),
-                        child: TextFormField(
-                          controller: taskNameController,
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Please enter some text';
-                            }
-                            return null;
-                          },
-                          decoration: InputDecoration(
-                            contentPadding:
-                                const EdgeInsets.symmetric(horizontal: 25),
-                            hintText: "Task Name",
-                            //text white
-                            hintStyle: TextStyle(
-                              color: Colors.white.withOpacity(0.4),
-                              fontWeight: FontWeight.normal,
-                            ),
-                            fillColor: Colors.white.withOpacity(0.1),
-                            filled: true,
-                            enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(50),
-                              borderSide: BorderSide.none,
-                            ),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(50),
-                            ),
-                          ),
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                          ),
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
                     ),
@@ -86,17 +60,8 @@ focusBreakTask(BuildContext context) {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 20),
-                          child: Text(
-                            "🤔 Focus time: ${focusTime.toString()} min",
-                            style: const TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.w400,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
+                        "🤔 Focus time: ${focusTime.toString()} min".formLabel,
+                        const SizedBox(height: 10),
                         Slider(
                           value: focusTime.toDouble(),
                           min: 1,
@@ -115,17 +80,8 @@ focusBreakTask(BuildContext context) {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 20),
-                          child: Text(
-                            "😎 Break time: ${breakTime.toString()} min",
-                            style: const TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.w400,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
+                        "😎 Break time: ${breakTime.toString()} min".formLabel,
+                        const SizedBox(height: 10),
                         Slider(
                           value: breakTime.toDouble(),
                           min: 1,
@@ -140,25 +96,22 @@ focusBreakTask(BuildContext context) {
                       ],
                     ),
                     const SizedBox(height: 20),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: SizedBox(
-                        width: double.infinity,
-                        child: FilledButton(
-                          onPressed: () {
-                            if (formKey.currentState!.validate()) {
-                              Navigator.of(context).pop();
-                              focusBreakState.resetAll(
-                                dialogTitle: "The task will be updated",
-                                context: context,
-                                newName: taskNameController.text,
-                                newWorkDuration: Duration(minutes: focusTime),
-                                newBreakDuration: Duration(minutes: breakTime),
-                              );
-                            }
-                          },
-                          child: const Text("Update Task"),
-                        ),
+                    SizedBox(
+                      width: double.infinity,
+                      child: FilledButton(
+                        onPressed: () {
+                          if (formKey.currentState!.validate()) {
+                            Navigator.of(context).pop();
+                            focusBreakState.resetAll(
+                              dialogTitle: "The task will be updated",
+                              context: context,
+                              newName: taskNameController.text,
+                              newWorkDuration: Duration(minutes: focusTime),
+                              newBreakDuration: Duration(minutes: breakTime),
+                            );
+                          }
+                        },
+                        child: const Text("Update Task"),
                       ),
                     )
                   ],

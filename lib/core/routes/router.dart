@@ -26,5 +26,11 @@ final router = GoRouter(
         return const FocusBreakPage();
       },
     ),
+    GoRoute(
+      path: '/multiple_timers',
+      builder: (context, state) {
+        return const MultipleTimersPage();
+      },
+    ),
   ],
 );

@@ -12,6 +12,9 @@ appTheme() => ThemeData(
           TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
         },
       ),
+      sliderTheme: SliderThemeData(
+        overlayShape: SliderComponentShape.noOverlay,
+      ),
       appBarTheme: const AppBarTheme(
         backgroundColor: Colors.black,
         foregroundColor: Colors.white,

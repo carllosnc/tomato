@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vw/vw.dart';
 import '/imports.dart';
 import 'components/big_button.dart';
 
@@ -10,48 +11,44 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Row(
-          mainAxisSize: MainAxisSize.min,
+        title: VWRow(
+          gap: 10,
+          horizontalAlignment: MainAxisAlignment.center,
           children: [
-            //logo and title
             Image.asset(
               Assets.logo,
               width: 30,
             ),
-            const SizedBox(width: 12),
             const Text("Tomato"),
           ],
         ),
       ),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 50,
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              BigButton(
-                icon: Icons.timer_outlined,
-                title: "Focus and Break",
-                description:
-                    "Configure your focus and break timers for just one task",
-                onTap: () {
-                  router.push('/focus_break');
-                },
-              ),
-              const SizedBox(height: 20),
-              BigButton(
-                icon: Icons.list_alt_outlined,
-                title: "Multiple Tasks",
-                description:
-                    "Create multiple tasks and break timers for multiple tasks",
-                onTap: () {},
-              ),
-            ],
-          ),
+      body: VWColumn(
+        horizontalAlignment: CrossAxisAlignment.center,
+        verticalAlignment: MainAxisAlignment.center,
+        gap: 20,
+        padding: const EdgeInsets.symmetric(
+          horizontal: 20,
         ),
+        children: [
+          BigButton(
+            icon: Icons.timer_outlined,
+            title: "Focus and Break",
+            description:
+                "Configure your focus and break timers for just one task",
+            onTap: () {
+              router.push('/focus_break');
+            },
+          ),
+          BigButton(
+            icon: Icons.list_alt_outlined,
+            title: "Multiple Timers",
+            description: "Create multiple timers for tasks or breaks",
+            onTap: () {
+              router.push('/multiple_timers');
+            },
+          ),
+        ],
       ),
     );
   }

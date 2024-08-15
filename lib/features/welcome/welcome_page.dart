@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:vw/vw_column.dart';
 import '/imports.dart';
 
 class WelcomePage extends StatelessWidget {
@@ -12,26 +13,27 @@ class WelcomePage extends StatelessWidget {
     return Scaffold(
       extendBody: true,
       body: Container(
+        width: double.infinity,
         decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage(Assets.extendedLogo),
             fit: BoxFit.cover,
           ),
         ),
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(30, 0, 30, 30),
-          child: SizedBox(
-            width: double.infinity,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
+        child: VWColumn(
+          gap: 20,
+          padding: const EdgeInsets.fromLTRB(30, 0, 30, 40),
+          verticalAlignment: MainAxisAlignment.end,
+          horizontalAlignment: CrossAxisAlignment.center,
+          children: [
+            const SizedBox(
+              height: 100,
+              child: Image(
+                image: AssetImage(Assets.logo),
+              ),
+            ),
+            Column(
               children: [
-                const SizedBox(
-                  height: 65,
-                  child: Image(
-                    image: AssetImage(Assets.logo),
-                  ),
-                ),
-                const SizedBox(height: 30),
                 const Text(
                   'Time to focus.',
                   style: TextStyle(
@@ -39,7 +41,6 @@ class WelcomePage extends StatelessWidget {
                     color: Colors.white,
                   ),
                 ),
-                const SizedBox(height: 10),
                 Text(
                   "It's simple: Focus. Break. Repeat.",
                   textAlign: TextAlign.center,
@@ -48,25 +49,21 @@ class WelcomePage extends StatelessWidget {
                     color: Colors.white.withOpacity(0.6),
                   ),
                 ),
-                const SizedBox(height: 20),
-                SizedBox(
-                  width: double.infinity,
-                  child: FilledButton(
-                    onPressed: () {
-                      sharedPreferences.prefs.setBool('welcome', false);
-                      context.go('/home');
-                    },
-                    child: const Text(
-                      "START NOW",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                )
               ],
             ),
-          ),
+            FilledButton(
+              onPressed: () {
+                sharedPreferences.prefs.setBool('welcome', false);
+                context.go('/home');
+              },
+              child: const Text(
+                "LET'S GO",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            )
+          ],
         ),
       ),
     );

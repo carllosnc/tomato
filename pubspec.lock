@@ -595,10 +595,10 @@ packages:
     dependency: "direct main"
     description:
       name: shared_preferences
-      sha256: c272f9cabca5a81adc9b0894381e9c1def363e980f960fa903c604c471b22f68
+      sha256: "746e5369a43170c25816cc472ee016d3a66bc13fcf430c0bc41ad7b4b2922051"
       url: "https://pub.dev"
     source: hosted
-    version: "2.3.1"
+    version: "2.3.2"
   shared_preferences_android:
     dependency: transitive
     description:
@@ -833,10 +833,10 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: e6a2d65b7e3ea2e6eb30b97a637c6b4385d27a75
+      resolved-ref: "6311aa837b1b79d2ac79150bfd3ccb1377900913"
       url: "https://github.com/carllosnc/vw.git"
     source: git
-    version: "0.0.15"
+    version: "0.0.16"
   watcher:
     dependency: transitive
     description:

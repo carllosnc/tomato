@@ -20,6 +20,7 @@ class _FocusBreakPageState extends State<FocusBreakPage> with SharedState {
         appBar: AppBar(
           centerTitle: true,
           leading: IconButton(
+            icon: const Icon(Icons.arrow_back),
             onPressed: () {
               focusBreakState.resetAll(
                 context: context,
@@ -28,17 +29,10 @@ class _FocusBreakPageState extends State<FocusBreakPage> with SharedState {
                 },
               );
             },
-            icon: const Icon(Icons.arrow_back),
           ),
-          title: "FOCUS AND BREAK".title,
+          title: "FOCUS AND BREAK".pageTitle,
         ),
-        floatingActionButton: FloatingActionButton.extended(
-          onPressed: () {
-            focusBreakTask(context);
-          },
-          label: const Text("Task"),
-          icon: const Icon(Icons.timer),
-        ),
+        floatingActionButton: const FocusBreakTimerTask(),
         body: const Center(
           child: SingleChildScrollView(
             child: FocusBreak(),

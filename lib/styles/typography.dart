@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 extension TypographyExtension on String {
-  Text get title => Text(
+  Text get pageTitle => Text(
         toUpperCase(),
         style: const TextStyle(
           fontSize: 12,
@@ -22,7 +22,7 @@ extension TypographyExtension on String {
   Text get buttonLabel => Text(
         toUpperCase(),
         style: const TextStyle(
-          fontSize: 14,
+          fontSize: 12,
           fontWeight: FontWeight.w800,
           letterSpacing: 2,
           color: Colors.black,

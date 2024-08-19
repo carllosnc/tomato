@@ -15,7 +15,6 @@ class _FocusBreakControlsState extends State<FocusBreakControls>
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        //autoplay button
         IconButton(
           tooltip: "Autoplay",
           style: ButtonStyle(
@@ -34,7 +33,6 @@ class _FocusBreakControlsState extends State<FocusBreakControls>
             focusBreakState.toggleAutoplay(context);
           },
         ),
-
         IconButton(
           tooltip: focusBreakState.isRunning ? "Pause" : "Play",
           icon: Icon(
@@ -46,8 +44,6 @@ class _FocusBreakControlsState extends State<FocusBreakControls>
             focusBreakState.toggleAction();
           },
         ),
-
-        //reset button
         IconButton(
           tooltip: "Reset timer",
           style: ButtonStyle(

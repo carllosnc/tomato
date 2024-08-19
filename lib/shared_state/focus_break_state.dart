@@ -128,13 +128,13 @@ class _FocusBreakState extends ChangeNotifier {
           title: Text(dialogTitle ?? "Reset Timer"),
           content: const Text("Are you sure you want to reset the timer?"),
           actions: [
-            TextButton(
+            OutlinedButton(
               onPressed: () {
                 Navigator.of(context).pop();
               },
               child: const Text("Cancel"),
             ),
-            TextButton(
+            OutlinedButton(
               onPressed: () {
                 Navigator.of(context).pop();
 

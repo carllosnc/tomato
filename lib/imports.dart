@@ -14,10 +14,14 @@ export '/core/themes/basic.theme.dart';
 export '/core/routes/router.dart';
 export '/core/shared_preferences/shared_preferences.dart';
 export '/core/constants/assets.dart';
-export '/core/styles/typography.dart';
-export '/core/styles/text_field.dart';
-export '/core/styles/radio_list.dart';
-export '/core/styles/colors.dart';
+export '/core/formatters/string.dart';
+
+//Styles
+export '/styles/typography.dart';
+export '/styles/text_field.dart';
+export '/styles/radio_list.dart';
+export '/styles/colors.dart';
+export '/styles/padding.dart';
 
 //Domain
 export '/domain/task.dart';

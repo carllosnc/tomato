@@ -19,6 +19,10 @@ textFieldDecoration({
     border: OutlineInputBorder(
       borderRadius: BorderRadius.circular(50),
     ),
+    suffixIcon: Icon(
+      Icons.edit_outlined,
+      color: Colors.white.withOpacity(0.3),
+    ),
   );
 }
 

@@ -4,14 +4,14 @@ class Timer {
   final String name;
   final int duration;
   final TimerType type;
-  final int id;
+  final int? id;
   final int position;
 
   Timer({
     required this.type,
     required this.name,
     required this.duration,
-    required this.id,
+    this.id,
     required this.position,
   });
 
@@ -41,7 +41,7 @@ class Timer {
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       type TEXT,
       name TEXT,
-      duration INTEGER
+      duration INTEGER,
       position INTEGER
     );
     ''';

@@ -1,3 +1,5 @@
+import 'package:vw/vw.dart';
+
 import '/imports.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +13,9 @@ class FocusBreakHeader extends StatefulWidget {
 class _FocusBreakHeaderState extends State<FocusBreakHeader> with SharedState {
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return VWColumn(
+      horizontalAlignment: CrossAxisAlignment.center,
+      gap: 20,
       children: [
         Text(
           focusBreakState.showStatus(),
@@ -20,7 +24,6 @@ class _FocusBreakHeaderState extends State<FocusBreakHeader> with SharedState {
             fontWeight: FontWeight.w300,
           ),
         ),
-        const SizedBox(height: 30),
         Text(
           focusBreakState.name.toUpperCase(),
           style: TextStyle(
@@ -30,7 +33,6 @@ class _FocusBreakHeaderState extends State<FocusBreakHeader> with SharedState {
             color: Colors.yellowAccent.withOpacity(0.9),
           ),
         ),
-        const SizedBox(height: 5),
         Wrap(
           spacing: 10,
           children: [

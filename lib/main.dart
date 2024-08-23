@@ -8,7 +8,7 @@ void main() async {
 
   await sharedPreferences.loadPreferences();
 
-  await multipleTasksState.init();
+  await multipleTimersState.init();
 
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,

@@ -3,7 +3,7 @@ import 'package:vw/vw.dart';
 import '/imports.dart';
 import 'timer_card_delete_button.dart';
 
-showTimerCardUpdateForm(BuildContext context, Timer timer) {
+showTimerCardUpdateForm(BuildContext context, CustomTimer timer) {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   final nameController = TextEditingController(text: timer.name);
   double taskTime = double.parse(timer.duration.toString());
@@ -33,7 +33,7 @@ showTimerCardUpdateForm(BuildContext context, Timer timer) {
         child: "Update Task".buttonLabel,
         onPressed: () async {
           if (formKey.currentState!.validate()) {
-            Timer newTimer = Timer(
+            CustomTimer newTimer = CustomTimer(
               id: timer.id,
               name: nameController.text,
               duration: taskTime.toInt(),
@@ -41,7 +41,7 @@ showTimerCardUpdateForm(BuildContext context, Timer timer) {
               position: timer.position,
             );
 
-            await multipleTasksState.update(newTimer);
+            await multipleTimersState.update(newTimer);
 
             if (context.mounted) {
               Navigator.of(context).pop();

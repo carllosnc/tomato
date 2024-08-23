@@ -3,7 +3,7 @@ import 'package:vw/vw.dart';
 import '/imports.dart';
 
 class TimerCardDeleteButton extends StatelessWidget {
-  final Timer timer;
+  final CustomTimer timer;
 
   const TimerCardDeleteButton({super.key, required this.timer});
 
@@ -15,36 +15,18 @@ class TimerCardDeleteButton extends StatelessWidget {
         color: Colors.red.shade300,
       ),
       onPressed: () {
-        showDialog(
-          context: context,
-          builder: (context) {
-            return AlertDialog(
-              title: const Text("Delete timer"),
-              content: VWText(
-                primaryColor: Colors.yellow,
-                text:
-                    "Are you sure you want to delete [<pc><b>${timer.name}</b></pc>?]",
-              ),
-              actions: [
-                OutlinedButton(
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                  child: const Text("Cancel"),
-                ),
-                OutlinedButton(
-                  onPressed: () async {
-                    await multipleTasksState.delete(timer.id!, timer.position);
+        context.alert(
+          title: "Delete timer",
+          content:
+              "Are you sure you want to delete [<pc><b>${timer.name}</b></pc>?]",
+          cancelLabel: "Cancel",
+          confirmLabel: "Delete",
+          onConfirm: () async {
+            await multipleTimersState.delete(timer.id!, timer.position);
 
-                    if (context.mounted) {
-                      Navigator.of(context).pop();
-                      Navigator.of(context).pop();
-                    }
-                  },
-                  child: const Text("Delete"),
-                ),
-              ],
-            );
+            if (context.mounted) {
+              Navigator.of(context).pop();
+            }
           },
         );
       },

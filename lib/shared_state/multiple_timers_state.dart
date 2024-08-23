@@ -211,7 +211,6 @@ class _MultipleTimersState extends ChangeNotifier {
 
   goToNextTimer() {
     int length = allTimers.length;
-    Vibration.vibrate(duration: 500);
 
     if (currentTimer != null && currentTimer!.position < length - 1) {
       setCurrentTimer(allTimers[currentTimer!.position + 1]);
@@ -241,6 +240,7 @@ class _MultipleTimersState extends ChangeNotifier {
       currentDuration = currentDuration! - const Duration(seconds: 1);
 
       if (currentDuration!.inSeconds == 0) {
+        Vibration.vibrate(duration: 500);
         setFinishedTimer(currentTimer!);
 
         if (autoStart) {

@@ -16,6 +16,14 @@ class _FocusBreakPageState extends State<FocusBreakPage> with SharedState {
   Widget build(BuildContext context) {
     return PopScope(
       canPop: false,
+      onPopInvoked: (cancel) {
+        focusBreakState.resetAll(
+          context: context,
+          onReset: () {
+            context.go("$homePath/");
+          },
+        );
+      },
       child: Scaffold(
         appBar: AppBar(
           centerTitle: true,

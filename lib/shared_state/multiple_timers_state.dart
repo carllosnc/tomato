@@ -259,8 +259,12 @@ class _MultipleTimersState extends ChangeNotifier {
 
   resetAllTimers() {
     currentCountdownTimer?.cancel();
-    currentTimer = allTimers.first;
-    currentDuration = Duration(minutes: currentTimer!.duration);
+
+    if (allTimers.isNotEmpty) {
+      currentTimer = allTimers.first;
+      currentDuration = Duration(minutes: currentTimer!.duration);
+    }
+
     finishedTimers.clear();
     actionState = ActionState.clean;
 

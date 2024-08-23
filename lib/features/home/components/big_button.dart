@@ -48,11 +48,10 @@ class BigButton extends StatelessWidget {
                         ),
                         const SizedBox(width: 10),
                         Text(
-                          title.toUpperCase(),
+                          title,
                           style: const TextStyle(
                             color: Colors.white,
-                            fontSize: 13,
-                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
                           ),
                         ),
                       ],

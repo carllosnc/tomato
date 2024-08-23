@@ -15,7 +15,7 @@ class _NewTimerButtonState extends State<NewTimerButton> with SharedState {
   final _formKey = GlobalKey<FormState>();
   final _nameController = TextEditingController();
   double _taskTime = 15;
-  TimerType _timerType = TimerType.task;
+  CustomTimerType _timerType = CustomTimerType.task;
 
   @override
   Widget build(BuildContext context) {
@@ -43,14 +43,14 @@ class _NewTimerButtonState extends State<NewTimerButton> with SharedState {
               child: "Create".buttonLabel,
               onPressed: () async {
                 if (_formKey.currentState!.validate()) {
-                  final newTask = Timer(
-                    position: multipleTasksState.allTasks.length,
+                  final newTask = CustomTimer(
+                    position: multipleTimersState.allTimers.length,
                     name: _nameController.text,
                     duration: _taskTime.toInt(),
                     type: _timerType,
                   );
 
-                  await multipleTasksState.add(newTask);
+                  await multipleTimersState.add(newTask);
                   _nameController.text = "";
 
                   if (context.mounted) {
@@ -108,13 +108,13 @@ class _NewTimerButtonState extends State<NewTimerButton> with SharedState {
                           gap: 10,
                           children: [
                             Expanded(
-                              child: RadioListTile<TimerType>(
+                              child: RadioListTile<CustomTimerType>(
                                 visualDensity: VisualDensity.compact,
                                 shape: context.radioListShape,
                                 title: const Text('Task'),
-                                value: TimerType.task,
+                                value: CustomTimerType.task,
                                 groupValue: _timerType,
-                                onChanged: (TimerType? value) {
+                                onChanged: (CustomTimerType? value) {
                                   setState(() {
                                     _timerType = value!;
                                   });
@@ -122,13 +122,13 @@ class _NewTimerButtonState extends State<NewTimerButton> with SharedState {
                               ),
                             ),
                             Expanded(
-                              child: RadioListTile<TimerType>(
+                              child: RadioListTile<CustomTimerType>(
                                 visualDensity: VisualDensity.compact,
                                 shape: context.radioListShape,
                                 title: const Text('Pause'),
-                                value: TimerType.pause,
+                                value: CustomTimerType.pause,
                                 groupValue: _timerType,
-                                onChanged: (TimerType? value) {
+                                onChanged: (CustomTimerType? value) {
                                   setState(() {
                                     _timerType = value!;
                                   });

@@ -34,8 +34,7 @@ class HomePage extends StatelessWidget {
           BigButton(
             icon: Icons.timer_outlined,
             title: "Focus and Break",
-            description:
-                "Configure your focus and break timers for just one task",
+            description: "Focus and break for just one task",
             onTap: () {
               router.push('/focus_break');
             },
@@ -43,7 +42,7 @@ class HomePage extends StatelessWidget {
           BigButton(
             icon: Icons.list_alt_outlined,
             title: "Multiple Timers",
-            description: "Create multiple timers for tasks or breaks",
+            description: "Set multiple timers for tasks and breaks",
             onTap: () {
               router.push('/multiple_timers');
             },

@@ -1,13 +1,13 @@
-enum TimerType { task, pause }
+enum CustomTimerType { task, pause }
 
-class Timer {
+class CustomTimer {
   final String name;
   final int duration;
-  final TimerType type;
+  final CustomTimerType type;
   final int? id;
   final int position;
 
-  Timer({
+  CustomTimer({
     required this.type,
     required this.name,
     required this.duration,
@@ -17,7 +17,7 @@ class Timer {
 
   Map<String, dynamic> toJson() {
     return {
-      'type': type == TimerType.task ? 'focus' : 'pause',
+      'type': type == CustomTimerType.task ? 'focus' : 'pause',
       'name': name,
       'duration': duration,
       'position': position,
@@ -25,11 +25,13 @@ class Timer {
     };
   }
 
-  static Timer fromJson(Map<String, dynamic> json) {
-    return Timer(
-      type: json['type'] == 'focus' ? TimerType.task : TimerType.pause,
+  static CustomTimer fromJson(Map<String, dynamic> json) {
+    return CustomTimer(
+      type: json['type'] == 'focus'
+          ? CustomTimerType.task
+          : CustomTimerType.pause,
       name: json['name'],
-      duration: json['duration'],
+      duration: Duration(minutes: json['duration']).inMinutes,
       position: json['position'],
       id: json['id'],
     );

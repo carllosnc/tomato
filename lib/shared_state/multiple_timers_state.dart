@@ -238,7 +238,7 @@ class _MultipleTimersState extends ChangeNotifier {
     notifyListeners();
 
     currentCountdownTimer = Timer.periodic(const Duration(seconds: 1), (timer) {
-      currentDuration = currentDuration! - const Duration(seconds: 10);
+      currentDuration = currentDuration! - const Duration(seconds: 1);
 
       if (currentDuration!.inSeconds == 0) {
         setFinishedTimer(currentTimer!);

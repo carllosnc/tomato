@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:vw/vw.dart';
 import '/imports.dart';
 
 class TimerCardDeleteButton extends StatelessWidget {
@@ -17,8 +16,7 @@ class TimerCardDeleteButton extends StatelessWidget {
       onPressed: () {
         context.alert(
           title: "Delete timer",
-          content:
-              "Are you sure you want to delete [<pc><b>${timer.name}</b></pc>?]",
+          content: "Are you sure you want to delete [<pc><b>${timer.name}</b></pc>?]",
           cancelLabel: "Cancel",
           confirmLabel: "Delete",
           onConfirm: () async {

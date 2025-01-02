@@ -24,7 +24,7 @@ class BigButton extends StatelessWidget {
       constraints: const BoxConstraints(maxWidth: 400),
       width: double.infinity,
       child: Material(
-        color: Theme.of(context).colorScheme.surfaceContainer,
+        color: Theme.of(context).colorScheme.surfaceContainerHigh,
         child: InkWell(
           onTap: onTap,
           child: Padding(
@@ -43,7 +43,7 @@ class BigButton extends StatelessWidget {
                       children: [
                         Icon(
                           icon,
-                          color: Colors.white.withOpacity(0.7),
+                          color: Colors.yellowAccent,
                           size: 30,
                         ),
                         const SizedBox(width: 10),
@@ -51,17 +51,17 @@ class BigButton extends StatelessWidget {
                           title,
                           style: const TextStyle(
                             color: Colors.white,
-                            fontSize: 16,
+                            fontSize: 18,
                           ),
                         ),
                       ],
                     ),
-                    const SizedBox(height: 15),
+                    const SizedBox(height: 10),
                     Text(
                       description,
                       style: TextStyle(
-                        color: Colors.white.withOpacity(0.3),
-                        fontSize: 15,
+                        color: Colors.white.withOpacity(0.5),
+                        fontSize: 16,
                       ),
                     ),
                   ],

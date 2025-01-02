@@ -1,13 +1,15 @@
 //Shared State
-export 'shared_state/shared_state.dart';
-export 'shared_state/focus_break_state.dart';
-export 'shared_state/multiple_timers_state.dart';
+export '/shared_state/shared_state.dart';
+export '/shared_state/focus_break_state.dart';
+export '/shared_state/multiple_timers_state.dart';
+export '/shared_state/sound_state.dart';
 
 //Pages
 export '/features/focus_break/focus_break_page.dart';
 export '/features/welcome/welcome_page.dart';
 export '/features/home/home_page.dart';
 export '/features/multiple_timers/multiple_timers_page.dart';
+export '/features/settings/settings_page.dart';
 
 //Core
 export '/core/themes/basic.theme.dart';

@@ -12,8 +12,7 @@ class MultipleTimersPage extends StatefulWidget {
   State<MultipleTimersPage> createState() => _MultipleTimersPageState();
 }
 
-class _MultipleTimersPageState extends State<MultipleTimersPage>
-    with SharedState, TickerProviderStateMixin {
+class _MultipleTimersPageState extends State<MultipleTimersPage> with SharedState, TickerProviderStateMixin {
   late List<CustomTimer> allTasks;
 
   @override
@@ -103,8 +102,7 @@ class _MultipleTimersPageState extends State<MultipleTimersPage>
           centerTitle: true,
           title: "Multiple Timers".pageTitle,
           actions: [
-            if (multipleTimersState.actionState == ActionState.clean)
-              const NewTimerButton(),
+            if (multipleTimersState.actionState == ActionState.clean) const NewTimerButton(),
           ],
         ),
         body: Builder(
@@ -159,9 +157,7 @@ class _MultipleTimersPageState extends State<MultipleTimersPage>
           ifFalse: null,
           ifTrue: Container(
             height: 70,
-            color: multipleTimersState.actionState == ActionState.running
-                ? const Color(0xFF4E4200)
-                : Theme.of(context).colorScheme.surfaceContainerHigh,
+            color: multipleTimersState.actionState == ActionState.running ? const Color(0xFF4E4200) : Theme.of(context).colorScheme.surfaceContainerHigh,
             child: VWRow(
               gap: 20,
               verticalAlignment: CrossAxisAlignment.center,
@@ -176,16 +172,10 @@ class _MultipleTimersPageState extends State<MultipleTimersPage>
                       IconButton.outlined(
                         style: OutlinedButton.styleFrom(
                           side: BorderSide(
-                            color: multipleTimersState.autoStart
-                                ? Colors.yellow
-                                : Theme.of(context).colorScheme.outline,
+                            color: multipleTimersState.autoStart ? Colors.yellow : Theme.of(context).colorScheme.outline,
                           ),
-                          foregroundColor: multipleTimersState.autoStart
-                              ? Colors.black
-                              : null,
-                          backgroundColor: multipleTimersState.autoStart
-                              ? Colors.yellow
-                              : null,
+                          foregroundColor: multipleTimersState.autoStart ? Colors.black : null,
+                          backgroundColor: multipleTimersState.autoStart ? Colors.yellow : null,
                         ),
                         onPressed: () {
                           multipleTimersState.toggleAutoStart();
@@ -200,8 +190,7 @@ class _MultipleTimersPageState extends State<MultipleTimersPage>
                   horizontalAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Auto Start: ${multipleTimersState.autoStart ? "On" : "Off"}"
-                          .toUpperCase(),
+                      "Auto Start: ${multipleTimersState.autoStart ? "On" : "Off"}".toUpperCase(),
                       style: const TextStyle(
                         fontSize: 11,
                         fontWeight: FontWeight.w600,

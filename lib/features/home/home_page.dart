@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vw/vw.dart';
-import '/imports.dart';
 import 'components/big_button.dart';
+import '/imports.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -11,17 +11,15 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: VWRow(
-          gap: 10,
-          horizontalAlignment: MainAxisAlignment.center,
-          children: [
-            Image.asset(
-              Assets.logo,
-              width: 30,
-            ),
-            const Text("Tomato"),
-          ],
-        ),
+        title: "Tomato".pageTitle,
+        actions: [
+          IconButton(
+            onPressed: () {
+              router.push('/settings');
+            },
+            icon: const Icon(Icons.settings_outlined),
+          ),
+        ],
       ),
       body: VWColumn(
         horizontalAlignment: CrossAxisAlignment.center,
@@ -31,6 +29,11 @@ class HomePage extends StatelessWidget {
           horizontal: 20,
         ),
         children: [
+          Image.asset(
+            Assets.logo,
+            width: 120,
+          ),
+          const SizedBox(height: 10),
           BigButton(
             icon: Icons.timer_outlined,
             title: "Focus and Break",

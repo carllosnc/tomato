@@ -45,6 +45,7 @@ dependencies:
   vw:
     git:
       url: https://github.com/carllosnc/vw.git
+  audioplayers: ^6.1.0
 
 dev_dependencies:
   flutter_test:
@@ -77,6 +78,7 @@ flutter:
   assets:
     - ./assets/images/welcome.png
     - ./assets/images/logo.png
+    - ./assets/sounds/bell.wav
     - shorebird.yaml
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:vibration/vibration.dart';
@@ -240,7 +241,12 @@ class _MultipleTimersState extends ChangeNotifier {
       currentDuration = currentDuration! - const Duration(seconds: 1);
 
       if (currentDuration!.inSeconds == 0) {
-        Vibration.vibrate(duration: 500);
+        if (soundState.allowSound) {
+          AudioPlayer().play(AssetSource('sounds/bell.wav'));
+        }
+
+        Vibration.vibrate(duration: 1000);
+
         setFinishedTimer(currentTimer!);
 
         if (autoStart) {

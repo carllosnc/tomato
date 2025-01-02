@@ -32,5 +32,11 @@ final router = GoRouter(
         return const MultipleTimersPage();
       },
     ),
+    GoRoute(
+      path: '/settings',
+      builder: (context, state) {
+        return const SettingsPage();
+      },
+    ),
   ],
 );

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '/imports.dart';
 
 class _SoundState extends ChangeNotifier {
-  bool allowSound = true;
+  bool allowSound = sharedPreferences.prefs.getBool('sound') ?? true;
 
   void toggleSound() {
     allowSound = !allowSound;

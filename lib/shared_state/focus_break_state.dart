@@ -1,7 +1,9 @@
 import 'dart:async';
 
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:vibration/vibration.dart';
+import '/imports.dart';
 
 enum ActionTime { work, relax }
 
@@ -70,6 +72,9 @@ class _FocusBreakState extends ChangeNotifier {
   void reset() {
     notifyListeners();
 
+    if (soundState.allowSound) {
+      AudioPlayer().play(AssetSource('sounds/bell.wav'));
+    }
     Vibration.vibrate(duration: 1000);
 
     currentDuration = currentTime;
@@ -176,8 +181,7 @@ class _FocusBreakState extends ChangeNotifier {
   // This function is used to format the duration
   String formatDuration(Duration d) {
     String twoDigitMinutes = d.inMinutes.remainder(60).toString();
-    String twoDigitSeconds =
-        d.inSeconds.remainder(60).toString().padLeft(2, '0');
+    String twoDigitSeconds = d.inSeconds.remainder(60).toString().padLeft(2, '0');
 
     return "$twoDigitMinutes:$twoDigitSeconds";
   }

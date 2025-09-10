@@ -8,8 +8,7 @@ showTimerCardUpdateForm(BuildContext context, CustomTimer timer) {
   final nameController = TextEditingController(text: timer.name);
   double taskTime = double.parse(timer.duration.toString());
 
-  VWSheet.open(
-    context: context,
+  context.openSheet(
     borderRadius: 25,
     appBar: AppBar(
       centerTitle: true,

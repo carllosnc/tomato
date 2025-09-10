@@ -10,8 +10,7 @@ class FocusBreakTimerTask extends StatefulWidget {
   State<FocusBreakTimerTask> createState() => _FocusBreakTimerTaskState();
 }
 
-class _FocusBreakTimerTaskState extends State<FocusBreakTimerTask>
-    with SharedState {
+class _FocusBreakTimerTaskState extends State<FocusBreakTimerTask> with SharedState {
   final formKey = GlobalKey<FormState>();
   TextEditingController taskNameController = TextEditingController();
 
@@ -26,7 +25,7 @@ class _FocusBreakTimerTaskState extends State<FocusBreakTimerTask>
       label: const Text("Task"),
       icon: const Icon(Icons.timer),
       onPressed: () {
-        VWSheet.open(
+        context.openSheet(
           borderRadius: 25,
           isScrollControlled: false,
           backgroundColor: context.pageBackground,
@@ -41,7 +40,6 @@ class _FocusBreakTimerTaskState extends State<FocusBreakTimerTask>
               },
             ),
           ),
-          context: context,
           bottomBar: Padding(
             padding: const EdgeInsets.all(20),
             child: FilledButton(
@@ -90,8 +88,7 @@ class _FocusBreakTimerTaskState extends State<FocusBreakTimerTask>
                       VWColumn(
                         gap: 10,
                         children: [
-                          "🤔 Focus time: ${focusTime.toString()} min"
-                              .formLabel,
+                          "🤔 Focus time: ${focusTime.toString()} min".formLabel,
                           Slider(
                             value: focusTime.toDouble(),
                             min: 1,
@@ -108,8 +105,7 @@ class _FocusBreakTimerTaskState extends State<FocusBreakTimerTask>
                       VWColumn(
                         gap: 10,
                         children: [
-                          "😎 Break time: ${breakTime.toString()} min"
-                              .formLabel,
+                          "😎 Break time: ${breakTime.toString()} min".formLabel,
                           Slider(
                             value: breakTime.toDouble(),
                             min: 1,

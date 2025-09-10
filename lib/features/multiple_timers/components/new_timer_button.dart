@@ -22,7 +22,7 @@ class _NewTimerButtonState extends State<NewTimerButton> with SharedState {
     return IconButton(
       icon: const Icon(Icons.add),
       onPressed: () {
-        VWSheet.open(
+        context.openSheet(
           isScrollControlled: false,
           borderRadius: 25,
           backgroundColor: context.pageBackground,
@@ -60,7 +60,6 @@ class _NewTimerButtonState extends State<NewTimerButton> with SharedState {
               },
             ),
           ),
-          context: context,
           body: StatefulBuilder(builder: (context, setState) {
             return SingleChildScrollView(
               child: Form(
@@ -85,8 +84,7 @@ class _NewTimerButtonState extends State<NewTimerButton> with SharedState {
                     VWColumn(
                       gap: 10,
                       children: [
-                        "Duration: ${_taskTime.toInt().toString()} min"
-                            .formLabel,
+                        "Duration: ${_taskTime.toInt().toString()} min".formLabel,
                         Slider(
                           value: _taskTime.toDouble(),
                           min: 1,

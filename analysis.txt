@@ -1,0 +1,28 @@
+Analyzing tomato...                                             
+
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\focus_break\components\focus_break_timer_controls.dart:24:34 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\focus_break\components\focus_break_timer_controls.dart:51:28 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\focus_break\components\focus_break_timer_header.dart:33:40 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\focus_break\components\focus_break_timer_indicator.dart:28:49 - deprecated_member_use
+   info - 'onPopInvoked' is deprecated and shouldn't be used. Use onPopInvokedWithResult instead. This feature was deprecated after v3.22.0-12.0.pre - lib\features\focus_break\focus_break_page.dart:19:7 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\home\components\big_button.dart:63:45 - deprecated_member_use
+   info - 'groupValue' is deprecated and shouldn't be used. Use a RadioGroup ancestor to manage group value instead. This feature was deprecated after v3.32.0-0.0.pre - lib\features\multiple_timers\components\new_timer_button.dart:114:33 - deprecated_member_use
+   info - 'onChanged' is deprecated and shouldn't be used. Use RadioGroup to handle value change instead. This feature was deprecated after v3.32.0-0.0.pre - lib\features\multiple_timers\components\new_timer_button.dart:115:33 - deprecated_member_use
+   info - 'groupValue' is deprecated and shouldn't be used. Use a RadioGroup ancestor to manage group value instead. This feature was deprecated after v3.32.0-0.0.pre - lib\features\multiple_timers\components\new_timer_button.dart:128:33 - deprecated_member_use
+   info - 'onChanged' is deprecated and shouldn't be used. Use RadioGroup to handle value change instead. This feature was deprecated after v3.32.0-0.0.pre - lib\features\multiple_timers\components\new_timer_button.dart:129:33 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\multiple_timers\components\timer_card.dart:75:43 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\multiple_timers\components\timer_card.dart:88:27 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\multiple_timers\components\timer_card.dart:132:29 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\multiple_timers\components\timer_card.dart:146:25 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\multiple_timers\components\timer_card.dart:188:41 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\multiple_timers\components\timer_card.dart:211:47 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\multiple_timers\components\timer_card.dart:218:47 - deprecated_member_use
+   info - 'onPopInvoked' is deprecated and shouldn't be used. Use onPopInvokedWithResult instead. This feature was deprecated after v3.22.0-12.0.pre - lib\features\multiple_timers\multiple_timers_page.dart:91:7 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\multiple_timers\multiple_timers_page.dart:126:43 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\settings\settings_page.dart:41:37 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\welcome\welcome_page.dart:49:41 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\styles\radio_list.dart:6:55 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\styles\text_field.dart:10:27 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\styles\text_field.dart:13:29 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\styles\text_field.dart:24:27 - deprecated_member_use
+

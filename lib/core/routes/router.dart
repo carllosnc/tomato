@@ -38,5 +38,11 @@ final router = GoRouter(
         return const SettingsPage();
       },
     ),
+    GoRoute(
+      path: '/last_time_since',
+      builder: (context, state) {
+        return const LastTimeSincePage();
+      },
+    ),
   ],
 );

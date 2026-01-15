@@ -50,6 +50,14 @@ class HomePage extends StatelessWidget {
               router.push('/multiple_timers');
             },
           ),
+          BigButton(
+            icon: Icons.calendar_today_outlined,
+            title: "Last time since",
+            description: "Register the last time since you do something",
+            onTap: () {
+              router.push('/last_time_since');
+            },
+          ),
         ],
       ),
     );

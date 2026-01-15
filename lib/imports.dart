@@ -10,6 +10,7 @@ export '/features/welcome/welcome_page.dart';
 export '/features/home/home_page.dart';
 export '/features/multiple_timers/multiple_timers_page.dart';
 export '/features/settings/settings_page.dart';
+export '/features/last_time_since/last_time_since_page.dart';
 
 //Core
 export '/core/themes/basic.theme.dart';
@@ -29,3 +30,4 @@ export '/styles/padding.dart';
 
 //Domain
 export '/domain/custom_timer.dart';
+export '/domain/last_time_since.dart';

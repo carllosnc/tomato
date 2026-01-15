@@ -16,7 +16,7 @@ class _FocusBreakPageState extends State<FocusBreakPage> with SharedState {
   Widget build(BuildContext context) {
     return PopScope(
       canPop: false,
-      onPopInvoked: (cancel) {
+      onPopInvokedWithResult: (didPop, result) {
         focusBreakState.resetAll(
           context: context,
           onReset: () {

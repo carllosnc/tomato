@@ -8,8 +8,7 @@ class FocusBreakIndicator extends StatefulWidget {
   State<FocusBreakIndicator> createState() => _FocusBreakIndicatorState();
 }
 
-class _FocusBreakIndicatorState extends State<FocusBreakIndicator>
-    with SharedState {
+class _FocusBreakIndicatorState extends State<FocusBreakIndicator> with SharedState {
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -25,7 +24,7 @@ class _FocusBreakIndicatorState extends State<FocusBreakIndicator>
                 return CircularProgressIndicator(
                   value: value,
                   strokeWidth: 3,
-                  backgroundColor: Colors.white.withOpacity(0.20),
+                  backgroundColor: Colors.white.withValues(alpha: 0.20),
                   valueColor: const AlwaysStoppedAnimation<Color>(
                     Colors.white,
                   ),
@@ -43,16 +42,11 @@ class _FocusBreakIndicatorState extends State<FocusBreakIndicator>
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    focusBreakState
-                        .formatDuration(focusBreakState.currentDuration),
+                    focusBreakState.formatDuration(focusBreakState.currentDuration),
                     style: TextStyle(
                       fontSize: 80,
-                      fontWeight: focusBreakState.isRunning
-                          ? FontWeight.w900
-                          : FontWeight.w100,
-                      color: focusBreakState.isRunning
-                          ? Colors.yellowAccent
-                          : Colors.white54,
+                      fontWeight: focusBreakState.isRunning ? FontWeight.w900 : FontWeight.w100,
+                      color: focusBreakState.isRunning ? Colors.yellowAccent : Colors.white54,
                     ),
                   ),
                 ],

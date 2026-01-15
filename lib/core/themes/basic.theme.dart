@@ -15,7 +15,6 @@ appTheme() => ThemeData(
       sliderTheme: SliderThemeData(
         overlayShape: SliderComponentShape.noOverlay,
       ),
-      dialogBackgroundColor: const Color(0xFF330000),
       appBarTheme: const AppBarTheme(
         backgroundColor: Colors.black,
         foregroundColor: Colors.white,
@@ -24,4 +23,5 @@ appTheme() => ThemeData(
           color: Colors.white,
         ),
       ),
+      dialogTheme: const DialogThemeData(backgroundColor: Color(0xFF330000)),
     );

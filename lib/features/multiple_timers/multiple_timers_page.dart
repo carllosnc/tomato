@@ -88,7 +88,7 @@ class _MultipleTimersPageState extends State<MultipleTimersPage> with SharedStat
   Widget build(BuildContext context) {
     return PopScope(
       canPop: false,
-      onPopInvoked: (cancel) {
+      onPopInvokedWithResult: (didPop, result) {
         exitAction();
       },
       child: Scaffold(
@@ -123,7 +123,7 @@ class _MultipleTimersPageState extends State<MultipleTimersPage> with SharedStat
                     Icon(
                       Icons.timer_outlined,
                       size: 80,
-                      color: Colors.white.withOpacity(0.3),
+                      color: Colors.white.withValues(alpha: 0.3),
                     ),
                     const Text(
                       "No tasks created yet",

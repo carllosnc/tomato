@@ -18,12 +18,9 @@ class TimerCard extends StatefulWidget {
 class _TimerCardState extends State<TimerCard> with SharedState {
   getStates() {
     return {
-      'isRunning': widget.timer.id == multipleTimersState.currentTimer?.id &&
-          multipleTimersState.actionState == ActionState.running,
-      'isPaused': widget.timer.id == multipleTimersState.currentTimer?.id &&
-          multipleTimersState.actionState == ActionState.paused,
-      'isTaskFinished':
-          multipleTimersState.finishedTimers.contains(widget.timer),
+      'isRunning': widget.timer.id == multipleTimersState.currentTimer?.id && multipleTimersState.actionState == ActionState.running,
+      'isPaused': widget.timer.id == multipleTimersState.currentTimer?.id && multipleTimersState.actionState == ActionState.paused,
+      'isTaskFinished': multipleTimersState.finishedTimers.contains(widget.timer),
       'isClean': multipleTimersState.actionState == ActionState.clean,
       'canReorder': multipleTimersState.actionState == ActionState.clean,
       'isCurrentTimer': widget.timer.id == multipleTimersState.currentTimer?.id,
@@ -33,9 +30,7 @@ class _TimerCardState extends State<TimerCard> with SharedState {
   }
 
   getTaskColor(CustomTimerType type) {
-    return type == CustomTimerType.task
-        ? Theme.of(context).colorScheme.surfaceContainer
-        : const Color(0xFF360000);
+    return type == CustomTimerType.task ? Theme.of(context).colorScheme.surfaceContainer : const Color(0xFF360000);
   }
 
   getPercent() {
@@ -72,7 +67,7 @@ class _TimerCardState extends State<TimerCard> with SharedState {
         builder: (context, value, child) {
           return CircularProgressIndicator(
             value: value,
-            backgroundColor: Colors.white.withOpacity(0.3),
+            backgroundColor: Colors.white.withValues(alpha: 0.3),
             strokeWidth: 2,
             valueColor: const AlwaysStoppedAnimation<Color>(Colors.yellow),
           );
@@ -81,11 +76,9 @@ class _TimerCardState extends State<TimerCard> with SharedState {
     }
 
     return Icon(
-      widget.timer.type == CustomTimerType.task
-          ? Icons.timer_outlined
-          : Icons.pause_circle_outline,
+      widget.timer.type == CustomTimerType.task ? Icons.timer_outlined : Icons.pause_circle_outline,
       size: 30,
-      color: Colors.white.withOpacity(0.3),
+      color: Colors.white.withValues(alpha: 0.3),
     );
   }
 
@@ -129,7 +122,7 @@ class _TimerCardState extends State<TimerCard> with SharedState {
 
     return {
       'text': Duration(minutes: widget.timer.duration).formatToHHMM(),
-      'color': Colors.white.withOpacity(0.5),
+      'color': Colors.white.withValues(alpha: 0.5),
       'fontSize': 15.toDouble(),
     };
   }
@@ -143,7 +136,7 @@ class _TimerCardState extends State<TimerCard> with SharedState {
       return Colors.blue.shade300;
     }
 
-    return Colors.white.withOpacity(0);
+    return Colors.white.withValues(alpha: 0);
   }
 
   @override
@@ -185,7 +178,7 @@ class _TimerCardState extends State<TimerCard> with SharedState {
                   width: 50,
                   child: Icon(
                     Icons.drag_handle,
-                    color: Colors.white.withOpacity(0.4),
+                    color: Colors.white.withValues(alpha: 0.4),
                   ),
                 ),
               ),
@@ -208,14 +201,14 @@ class _TimerCardState extends State<TimerCard> with SharedState {
                         getTaskLabel(widget.timer.type),
                         style: TextStyle(
                           fontSize: 15,
-                          color: Colors.white.withOpacity(0.5),
+                          color: Colors.white.withValues(alpha: 0.5),
                         ),
                       ),
                       Text(
                         "•",
                         style: TextStyle(
                           fontSize: 15,
-                          color: Colors.white.withOpacity(0.5),
+                          color: Colors.white.withValues(alpha: 0.5),
                         ),
                       ),
                       Text(

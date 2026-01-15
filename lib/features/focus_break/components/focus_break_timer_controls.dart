@@ -8,8 +8,7 @@ class FocusBreakControls extends StatefulWidget {
   State<FocusBreakControls> createState() => _FocusBreakControlsState();
 }
 
-class _FocusBreakControlsState extends State<FocusBreakControls>
-    with SharedState {
+class _FocusBreakControlsState extends State<FocusBreakControls> with SharedState {
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -19,9 +18,7 @@ class _FocusBreakControlsState extends State<FocusBreakControls>
           tooltip: "Autoplay",
           style: ButtonStyle(
             backgroundColor: WidgetStateProperty.all<Color>(
-              focusBreakState.autoplay
-                  ? Colors.yellowAccent
-                  : Colors.white.withOpacity(0.20),
+              focusBreakState.autoplay ? Colors.yellowAccent : Colors.white.withValues(alpha: 0.20),
             ),
           ),
           icon: Icon(
@@ -48,7 +45,7 @@ class _FocusBreakControlsState extends State<FocusBreakControls>
           tooltip: "Reset timer",
           style: ButtonStyle(
             backgroundColor: WidgetStateProperty.all<Color>(
-              Colors.white.withOpacity(0.20),
+              Colors.white.withValues(alpha: 0.20),
             ),
           ),
           icon: const Icon(

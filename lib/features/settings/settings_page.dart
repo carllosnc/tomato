@@ -38,7 +38,7 @@ class _SettingsPageState extends State<SettingsPage> with SharedState {
               "Allow sound to play when timer ends",
               style: TextStyle(
                 fontSize: 16,
-                color: Colors.white.withOpacity(0.5),
+                color: Colors.white.withValues(alpha: 0.5),
               ),
             ),
           ),

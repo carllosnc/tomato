@@ -30,7 +30,7 @@ class _FocusBreakHeaderState extends State<FocusBreakHeader> with SharedState {
             fontSize: 16,
             fontWeight: FontWeight.w800,
             letterSpacing: 6,
-            color: Colors.yellowAccent.withOpacity(0.9),
+            color: Colors.yellowAccent.withValues(alpha: 0.9),
           ),
         ),
         Wrap(

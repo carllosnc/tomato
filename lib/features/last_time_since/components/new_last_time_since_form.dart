@@ -67,7 +67,12 @@ class _NewLastTimeSinceFormState extends State<NewLastTimeSinceForm> {
                     }
                   },
                   child: Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 12),
+                    padding: const EdgeInsets.only(
+                      left: 25,
+                      right: 16,
+                      top: 12,
+                      bottom: 12,
+                    ),
                     decoration: BoxDecoration(
                       color: Colors.white.withValues(alpha: 0.1),
                       borderRadius: BorderRadius.circular(50),

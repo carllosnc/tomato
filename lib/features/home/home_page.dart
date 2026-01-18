@@ -51,7 +51,7 @@ class HomePage extends StatelessWidget {
             },
           ),
           BigButton(
-            icon: Icons.calendar_today_outlined,
+            icon: Icons.calendar_month_outlined,
             title: "Last time since",
             description: "Register the last time since you do something",
             onTap: () {

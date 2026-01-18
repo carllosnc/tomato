@@ -3,6 +3,7 @@ export '/shared_state/shared_state.dart';
 export '/shared_state/focus_break_state.dart';
 export '/shared_state/multiple_timers_state.dart';
 export '/shared_state/sound_state.dart';
+export '/shared_state/last_time_since_state.dart';
 
 //Pages
 export '/features/focus_break/focus_break_page.dart';

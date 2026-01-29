@@ -1,3 +1,4 @@
+import 'package:localize/localize.dart';
 import '/imports.dart';
 import 'package:flutter/material.dart';
 
@@ -8,14 +9,14 @@ class FocusBreakControls extends StatefulWidget {
   State<FocusBreakControls> createState() => _FocusBreakControlsState();
 }
 
-class _FocusBreakControlsState extends State<FocusBreakControls> with SharedState {
+class _FocusBreakControlsState extends State<FocusBreakControls> with SharedState, LocalizeMixin {
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         IconButton(
-          tooltip: "Autoplay",
+          tooltip: "Autoplay".localize,
           style: ButtonStyle(
             backgroundColor: WidgetStateProperty.all<Color>(
               focusBreakState.autoplay ? Colors.yellowAccent : Colors.white.withValues(alpha: 0.20),
@@ -31,7 +32,7 @@ class _FocusBreakControlsState extends State<FocusBreakControls> with SharedStat
           },
         ),
         IconButton(
-          tooltip: focusBreakState.isRunning ? "Pause" : "Play",
+          tooltip: focusBreakState.isRunning ? "Pause".localize : "Play".localize,
           icon: Icon(
             focusBreakState.isRunning ? Icons.pause : Icons.play_arrow,
             color: Colors.white,
@@ -42,7 +43,7 @@ class _FocusBreakControlsState extends State<FocusBreakControls> with SharedStat
           },
         ),
         IconButton(
-          tooltip: "Reset timer",
+          tooltip: "Reset timer".localize,
           style: ButtonStyle(
             backgroundColor: WidgetStateProperty.all<Color>(
               Colors.white.withValues(alpha: 0.20),

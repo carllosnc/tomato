@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:localize/localize.dart';
 import 'package:vw/vw_column.dart';
 import '/imports.dart';
 
-class WelcomePage extends StatelessWidget {
+class WelcomePage extends StatefulWidget {
   const WelcomePage({
     super.key,
   });
 
+  @override
+  State<WelcomePage> createState() => _WelcomePageState();
+}
+
+class _WelcomePageState extends State<WelcomePage> with LocalizeMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,15 +40,15 @@ class WelcomePage extends StatelessWidget {
             ),
             Column(
               children: [
-                const Text(
-                  'Time to focus.',
-                  style: TextStyle(
+                Text(
+                  'Time to focus.'.localize,
+                  style: const TextStyle(
                     fontSize: 25,
                     color: Colors.white,
                   ),
                 ),
                 Text(
-                  "It's simple: Focus. Break. Repeat.",
+                  "It's simple: Focus. Break. Repeat.".localize,
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 16,
@@ -56,9 +62,9 @@ class WelcomePage extends StatelessWidget {
                 sharedPreferences.prefs.setBool('welcome', false);
                 context.go('/home');
               },
-              child: const Text(
-                "LET'S GO",
-                style: TextStyle(
+              child: Text(
+                "LET'S GO".localize,
+                style: const TextStyle(
                   fontWeight: FontWeight.bold,
                 ),
               ),

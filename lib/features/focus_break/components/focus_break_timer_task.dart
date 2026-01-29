@@ -1,4 +1,5 @@
 import 'package:vw/vw.dart';
+import 'package:localize/localize.dart';
 
 import '/imports.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +11,7 @@ class FocusBreakTimerTask extends StatefulWidget {
   State<FocusBreakTimerTask> createState() => _FocusBreakTimerTaskState();
 }
 
-class _FocusBreakTimerTaskState extends State<FocusBreakTimerTask> with SharedState {
+class _FocusBreakTimerTaskState extends State<FocusBreakTimerTask> with SharedState, LocalizeMixin {
   final formKey = GlobalKey<FormState>();
   TextEditingController taskNameController = TextEditingController();
 
@@ -22,7 +23,7 @@ class _FocusBreakTimerTaskState extends State<FocusBreakTimerTask> with SharedSt
     taskNameController.text = focusBreakState.name;
 
     return FloatingActionButton.extended(
-      label: const Text("Task"),
+      label: Text("Task".localize),
       icon: const Icon(Icons.timer),
       onPressed: () {
         context.openSheet(
@@ -32,7 +33,7 @@ class _FocusBreakTimerTaskState extends State<FocusBreakTimerTask> with SharedSt
           appBar: AppBar(
             centerTitle: true,
             backgroundColor: context.pageBackground,
-            title: "Update Task".pageTitle,
+            title: "Update Task".localize.pageTitle,
             leading: IconButton(
               icon: const Icon(Icons.close),
               onPressed: () {
@@ -43,12 +44,12 @@ class _FocusBreakTimerTaskState extends State<FocusBreakTimerTask> with SharedSt
           bottomBar: Padding(
             padding: const EdgeInsets.all(20),
             child: FilledButton(
-              child: "Update Task".buttonLabel,
+              child: "Update Task".localize.buttonLabel,
               onPressed: () {
                 if (formKey.currentState!.validate()) {
                   Navigator.of(context).pop();
                   focusBreakState.resetAll(
-                    dialogTitle: "The task will be updated",
+                    dialogTitle: "The task will be updated".localize,
                     context: context,
                     newName: taskNameController.text,
                     newWorkDuration: Duration(minutes: focusTime),
@@ -73,12 +74,12 @@ class _FocusBreakTimerTaskState extends State<FocusBreakTimerTask> with SharedSt
                         controller: taskNameController,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
-                            return 'Please enter some text';
+                            return 'Please enter some text'.localize;
                           }
                           return null;
                         },
                         decoration: textFieldDecoration(
-                          hintText: "Task Name",
+                          hintText: "Task Name".localize,
                         ),
                         style: const TextStyle(
                           color: Colors.white,
@@ -88,7 +89,7 @@ class _FocusBreakTimerTaskState extends State<FocusBreakTimerTask> with SharedSt
                       VWColumn(
                         gap: 10,
                         children: [
-                          "🤔 Focus time: ${focusTime.toString()} min".formLabel,
+                          "${"Focus time: ".localize}${focusTime.toString()} ${"min".localize}".formLabel,
                           Slider(
                             value: focusTime.toDouble(),
                             min: 1,
@@ -105,7 +106,7 @@ class _FocusBreakTimerTaskState extends State<FocusBreakTimerTask> with SharedSt
                       VWColumn(
                         gap: 10,
                         children: [
-                          "😎 Break time: ${breakTime.toString()} min".formLabel,
+                          "${"Break time: ".localize}${breakTime.toString()} ${"min".localize}".formLabel,
                           Slider(
                             value: breakTime.toDouble(),
                             min: 1,

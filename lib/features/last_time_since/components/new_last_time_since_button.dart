@@ -14,8 +14,8 @@ class NewLastTimeSinceButton extends StatelessWidget {
       ),
       onPressed: () {
         context.openSheet(
-          isScrollControlled: true,
           borderRadius: 25,
+          isScrollControlled: false,
           backgroundColor: context.pageBackground,
           appBar: AppBar(
             centerTitle: true,

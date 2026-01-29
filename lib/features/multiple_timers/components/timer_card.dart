@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:localize/localize.dart';
 import 'package:vw/vw.dart';
 import '/imports.dart';
 import 'timer_card_update_form.dart';
@@ -15,7 +16,7 @@ class TimerCard extends StatefulWidget {
   State<TimerCard> createState() => _TimerCardState();
 }
 
-class _TimerCardState extends State<TimerCard> with SharedState {
+class _TimerCardState extends State<TimerCard> with SharedState, LocalizeMixin {
   getStates() {
     return {
       'isRunning': widget.timer.id == multipleTimersState.currentTimer?.id && multipleTimersState.actionState == ActionState.running,
@@ -100,7 +101,7 @@ class _TimerCardState extends State<TimerCard> with SharedState {
   }
 
   getTaskLabel(CustomTimerType type) {
-    return type == CustomTimerType.task ? "Task" : "Pause";
+    return type == CustomTimerType.task ? "Task".localize : "Pause".localize;
   }
 
   getDuration() {

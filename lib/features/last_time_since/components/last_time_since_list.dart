@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:localize/localize.dart';
 import 'package:intl/intl.dart';
 import '/imports.dart';
 
-class LastTimeSinceList extends StatelessWidget {
+class LastTimeSinceList extends StatefulWidget {
   const LastTimeSinceList({super.key});
 
+  @override
+  State<LastTimeSinceList> createState() => _LastTimeSinceListState();
+}
+
+class _LastTimeSinceListState extends State<LastTimeSinceList> with LocalizeMixin {
   @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(
@@ -21,9 +27,9 @@ class LastTimeSinceList extends StatelessWidget {
                   color: Colors.white.withValues(alpha: 0.3),
                 ),
                 const SizedBox(height: 20),
-                const Text(
-                  "No items yet",
-                  style: TextStyle(
+                Text(
+                  "No items yet".localize,
+                  style: const TextStyle(
                     color: Colors.white,
                     fontSize: 18,
                   ),
@@ -50,7 +56,7 @@ class LastTimeSinceList extends StatelessWidget {
                 color: Colors.white54,
               ),
               title: Text(
-                "$days days since i ${item.title}",
+                "$days ${"days since i".localize} ${item.title}",
                 style: const TextStyle(
                   color: Colors.yellow,
                   fontSize: 18,
@@ -66,12 +72,12 @@ class LastTimeSinceList extends StatelessWidget {
                     context: context,
                     builder: (context) {
                       return AlertDialog(
-                        title: const Text("Delete?"),
-                        content: const Text("Are you sure you want to delete this?"),
+                        title: Text("Delete?".localize),
+                        content: Text("Are you sure you want to delete this?".localize),
                         actions: [
                           OutlinedButton(
                             onPressed: () => Navigator.of(context).pop(),
-                            child: const Text("Cancel"),
+                            child: Text("Cancel".localize),
                           ),
                           OutlinedButton(
                             onPressed: () {
@@ -80,7 +86,7 @@ class LastTimeSinceList extends StatelessWidget {
                               }
                               Navigator.of(context).pop();
                             },
-                            child: const Text("Delete"),
+                            child: Text("Delete".localize),
                           ),
                         ],
                       );

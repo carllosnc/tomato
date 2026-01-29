@@ -46,6 +46,9 @@ dependencies:
       url: https://github.com/carllosnc/vw.git
   audioplayers: ^6.1.0
   vibration: ^3.1.3
+  localize:
+    git:
+      url: https://github.com/carllosnc/localize.git
 
 dev_dependencies:
   flutter_test:

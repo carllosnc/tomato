@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
+import 'package:localize/localize.dart';
 import 'package:vibration/vibration.dart';
 import '/imports.dart';
 
@@ -110,7 +111,7 @@ class _FocusBreakState extends ChangeNotifier {
             ? Theme.of(context).colorScheme.primary
             : Theme.of(context).colorScheme.secondary,
         content: Text(
-          autoplay ? "Autoplay enabled" : "Autoplay disabled",
+          autoplay ? "Autoplay enabled".localize : "Autoplay disabled".localize,
         ),
         duration: const Duration(milliseconds: 700),
       ),
@@ -130,14 +131,14 @@ class _FocusBreakState extends ChangeNotifier {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text(dialogTitle ?? "Reset Timer"),
-          content: const Text("Are you sure you want to reset the timer?"),
+          title: Text(dialogTitle ?? "Reset Timer".localize),
+          content: Text("Are you sure you want to reset the timer?".localize),
           actions: [
             OutlinedButton(
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: const Text("Cancel"),
+              child: Text("Cancel".localize),
             ),
             OutlinedButton(
               onPressed: () {
@@ -157,7 +158,7 @@ class _FocusBreakState extends ChangeNotifier {
                 notifyListeners();
                 onReset?.call();
               },
-              child: const Text("Reset"),
+              child: Text("Reset".localize),
             ),
           ],
         );
@@ -169,13 +170,13 @@ class _FocusBreakState extends ChangeNotifier {
   String showStatus() {
     if (isRunning) {
       if (actionType == ActionTime.work) {
-        return "👨‍💻 Time to focus";
+        return "👨‍💻 Time to focus"; // Will be localized at call site
       } else {
-        return "🧘‍♂️ Take a break";
+        return "🧘‍♂️ Take a break"; // Will be localized at call site
       }
     }
 
-    return "😐 Paused";
+    return "😐 Paused"; // Will be localized at call site
   }
 
   // This function is used to format the duration
@@ -191,7 +192,7 @@ class _FocusBreakState extends ChangeNotifier {
     if (d.inSeconds < 60) {
       return "${d.inSeconds} s";
     } else {
-      return "${d.inMinutes} min";
+      return "${d.inMinutes} ${"min".localize}";
     }
   }
 }

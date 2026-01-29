@@ -1,5 +1,6 @@
 // ignore_for_file: deprecated_member_use
 import 'package:flutter/material.dart';
+import 'package:localize/localize.dart';
 import '/imports.dart';
 import 'package:vw/vw.dart';
 
@@ -12,7 +13,7 @@ class NewTimerButton extends StatefulWidget {
   State<NewTimerButton> createState() => _NewTimerButtonState();
 }
 
-class _NewTimerButtonState extends State<NewTimerButton> with SharedState {
+class _NewTimerButtonState extends State<NewTimerButton> with SharedState, LocalizeMixin {
   final _formKey = GlobalKey<FormState>();
   final _nameController = TextEditingController();
   double _taskTime = 15;
@@ -30,7 +31,7 @@ class _NewTimerButtonState extends State<NewTimerButton> with SharedState {
           appBar: AppBar(
             centerTitle: true,
             backgroundColor: context.pageBackground,
-            title: "New timer".pageTitle,
+            title: "New timer".localize.pageTitle,
             leading: IconButton(
               icon: const Icon(Icons.close),
               onPressed: () {
@@ -41,7 +42,7 @@ class _NewTimerButtonState extends State<NewTimerButton> with SharedState {
           bottomBar: Padding(
             padding: const EdgeInsets.all(20),
             child: FilledButton(
-              child: "Create".buttonLabel,
+              child: "Create".localize.buttonLabel,
               onPressed: () async {
                 if (_formKey.currentState!.validate()) {
                   final newTask = CustomTimer(
@@ -72,12 +73,12 @@ class _NewTimerButtonState extends State<NewTimerButton> with SharedState {
                     TextFormField(
                       controller: _nameController,
                       decoration: textFieldDecoration(
-                        hintText: "Timer name",
+                        hintText: "Timer name".localize,
                       ),
                       style: textFieldStyle(),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'Name cannot be empty';
+                          return 'Name cannot be empty'.localize;
                         }
                         return null;
                       },
@@ -85,7 +86,7 @@ class _NewTimerButtonState extends State<NewTimerButton> with SharedState {
                     VWColumn(
                       gap: 10,
                       children: [
-                        "Duration: ${_taskTime.toInt().toString()} min".formLabel,
+                        "${"Duration: ".localize}${_taskTime.toInt().toString()} ${"min".localize}".formLabel,
                         Slider(
                           value: _taskTime.toDouble(),
                           min: 1,
@@ -102,7 +103,7 @@ class _NewTimerButtonState extends State<NewTimerButton> with SharedState {
                     VWColumn(
                       gap: 10,
                       children: [
-                        "Timer type".formLabel,
+                        "Timer type".localize.formLabel,
                         VWRow(
                           gap: 10,
                           children: [
@@ -110,7 +111,7 @@ class _NewTimerButtonState extends State<NewTimerButton> with SharedState {
                               child: RadioListTile<CustomTimerType>(
                                 visualDensity: VisualDensity.compact,
                                 shape: context.radioListShape,
-                                title: const Text('Task'),
+                                title: Text('Task'.localize),
                                 value: CustomTimerType.task,
                                 groupValue: _timerType,
                                 onChanged: (CustomTimerType? value) {
@@ -124,7 +125,7 @@ class _NewTimerButtonState extends State<NewTimerButton> with SharedState {
                               child: RadioListTile<CustomTimerType>(
                                 visualDensity: VisualDensity.compact,
                                 shape: context.radioListShape,
-                                title: const Text('Pause'),
+                                title: Text('Pause'.localize),
                                 value: CustomTimerType.pause,
                                 groupValue: _timerType,
                                 onChanged: (CustomTimerType? value) {

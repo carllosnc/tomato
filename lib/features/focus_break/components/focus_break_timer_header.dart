@@ -1,4 +1,5 @@
 import 'package:vw/vw.dart';
+import 'package:localize/localize.dart';
 
 import '/imports.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +11,7 @@ class FocusBreakHeader extends StatefulWidget {
   State<FocusBreakHeader> createState() => _FocusBreakHeaderState();
 }
 
-class _FocusBreakHeaderState extends State<FocusBreakHeader> with SharedState {
+class _FocusBreakHeaderState extends State<FocusBreakHeader> with SharedState, LocalizeMixin {
   @override
   Widget build(BuildContext context) {
     return VWColumn(
@@ -18,7 +19,7 @@ class _FocusBreakHeaderState extends State<FocusBreakHeader> with SharedState {
       gap: 20,
       children: [
         Text(
-          focusBreakState.showStatus(),
+          focusBreakState.showStatus().localize,
           style: const TextStyle(
             fontSize: 30,
             fontWeight: FontWeight.w300,
@@ -37,7 +38,7 @@ class _FocusBreakHeaderState extends State<FocusBreakHeader> with SharedState {
           spacing: 10,
           children: [
             Text(
-              "Focus: ${focusBreakState.formatDurationDescription(focusBreakState.workDuration)}",
+              "${"Focus: ".localize}${focusBreakState.formatDurationDescription(focusBreakState.workDuration)}",
               textAlign: TextAlign.center,
               style: const TextStyle(
                 fontSize: 18,
@@ -47,7 +48,7 @@ class _FocusBreakHeaderState extends State<FocusBreakHeader> with SharedState {
             ),
             const Text("•"),
             Text(
-              "Break: ${focusBreakState.formatDurationDescription(focusBreakState.breakDuration)}",
+              "${"Break: ".localize}${focusBreakState.formatDurationDescription(focusBreakState.breakDuration)}",
               textAlign: TextAlign.center,
               style: const TextStyle(
                 fontSize: 18,

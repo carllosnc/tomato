@@ -1,3 +1,4 @@
+import 'package:localize/localize.dart';
 import 'package:flutter/material.dart';
 import '/imports.dart';
 
@@ -8,20 +9,20 @@ class SettingsPage extends StatefulWidget {
   State<SettingsPage> createState() => _SettingsPageState();
 }
 
-class _SettingsPageState extends State<SettingsPage> with SharedState {
+class _SettingsPageState extends State<SettingsPage> with SharedState, LocalizeMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: "Settings".pageTitle,
+        title: "Settings".localize.pageTitle,
       ),
       body: Column(
         children: [
           ListTile(
-            title: const Text(
-              "Sound",
-              style: TextStyle(
+            title: Text(
+              "Sound".localize,
+              style: const TextStyle(
                 fontSize: 20,
               ),
             ),
@@ -35,7 +36,7 @@ class _SettingsPageState extends State<SettingsPage> with SharedState {
               },
             ),
             subtitle: Text(
-              "Allow sound to play when timer ends",
+              "Allow sound to play when timer ends".localize,
               style: TextStyle(
                 fontSize: 16,
                 color: Colors.white.withValues(alpha: 0.5),

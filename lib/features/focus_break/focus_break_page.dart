@@ -1,6 +1,7 @@
 import '/imports.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter/material.dart';
+import 'package:localize/localize.dart';
 import 'components/focus_break_timer.dart';
 import 'components/focus_break_timer_task.dart';
 
@@ -11,7 +12,7 @@ class FocusBreakPage extends StatefulWidget {
   State<FocusBreakPage> createState() => _FocusBreakPageState();
 }
 
-class _FocusBreakPageState extends State<FocusBreakPage> with SharedState {
+class _FocusBreakPageState extends State<FocusBreakPage> with SharedState, LocalizeMixin {
   @override
   Widget build(BuildContext context) {
     return PopScope(
@@ -38,7 +39,7 @@ class _FocusBreakPageState extends State<FocusBreakPage> with SharedState {
               );
             },
           ),
-          title: "FOCUS AND BREAK".pageTitle,
+          title: "FOCUS AND BREAK".localize.pageTitle,
         ),
         floatingActionButton: const FocusBreakTimerTask(),
         body: const Center(

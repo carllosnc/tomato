@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:localize/localize.dart';
 import 'package:vw/vw.dart';
 import 'components/new_timer_button.dart';
 import 'components/timer_card.dart';
@@ -12,7 +13,7 @@ class MultipleTimersPage extends StatefulWidget {
   State<MultipleTimersPage> createState() => _MultipleTimersPageState();
 }
 
-class _MultipleTimersPageState extends State<MultipleTimersPage> with SharedState, TickerProviderStateMixin {
+class _MultipleTimersPageState extends State<MultipleTimersPage> with SharedState, TickerProviderStateMixin, LocalizeMixin {
   late List<CustomTimer> allTasks;
 
   @override
@@ -61,10 +62,10 @@ class _MultipleTimersPageState extends State<MultipleTimersPage> with SharedStat
 
   exitAction() {
     context.alert(
-      title: "Exit",
-      content: "Are you sure you want to exit? All timers will be reset.",
-      cancelLabel: "Cancel",
-      confirmLabel: "Exit",
+      title: "Exit".localize,
+      content: "Are you sure you want to exit? All timers will be reset.".localize,
+      cancelLabel: "Cancel".localize,
+      confirmLabel: "Exit".localize,
       onConfirm: () {
         multipleTimersState.resetAllTimers();
         context.go("$homePath/");
@@ -74,10 +75,10 @@ class _MultipleTimersPageState extends State<MultipleTimersPage> with SharedStat
 
   resetAction() {
     context.alert(
-      title: "Reset",
-      content: "Are you sure you want to reset? All timers will be reset.",
-      cancelLabel: "Cancel",
-      confirmLabel: "Reset",
+      title: "Reset".localize,
+      content: "Are you sure you want to reset? All timers will be reset.".localize,
+      cancelLabel: "Cancel".localize,
+      confirmLabel: "Reset".localize,
       onConfirm: () {
         multipleTimersState.resetAllTimers();
       },
@@ -100,7 +101,7 @@ class _MultipleTimersPageState extends State<MultipleTimersPage> with SharedStat
             icon: const Icon(Icons.arrow_back),
           ),
           centerTitle: true,
-          title: "Multiple Timers".pageTitle,
+          title: "Multiple Timers".localize.pageTitle,
           actions: [
             if (multipleTimersState.actionState == ActionState.clean) const NewTimerButton(),
           ],
@@ -125,9 +126,9 @@ class _MultipleTimersPageState extends State<MultipleTimersPage> with SharedStat
                       size: 80,
                       color: Colors.white.withValues(alpha: 0.3),
                     ),
-                    const Text(
-                      "No tasks created yet",
-                      style: TextStyle(fontSize: 18),
+                    Text(
+                      "No tasks created yet".localize,
+                      style: const TextStyle(fontSize: 18),
                     ),
                   ],
                 ),
@@ -190,7 +191,7 @@ class _MultipleTimersPageState extends State<MultipleTimersPage> with SharedStat
                   horizontalAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Auto Start: ${multipleTimersState.autoStart ? "On" : "Off"}".toUpperCase(),
+                      "${"Auto Start: ".localize}${multipleTimersState.autoStart ? "On".localize : "Off".localize}".toUpperCase(),
                       style: const TextStyle(
                         fontSize: 11,
                         fontWeight: FontWeight.w600,

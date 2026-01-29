@@ -20,3 +20,7 @@
 -keep class io.flutter.view.**  { *; }
 -keep class io.flutter.**  { *; }
 -keep class io.flutter.plugins.**  { *; }
+
+# Fix for R8 missing class error related to Play Core
+-dontwarn com.google.android.play.core.**
+-keep class com.google.android.play.core.** { *; }

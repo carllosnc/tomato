@@ -57,7 +57,7 @@ class LastTimeSinceList extends StatelessWidget {
                 ),
               ),
               subtitle: Text(
-                DateFormat.yMMMd().format(item.time),
+                DateFormat.yMMMd().add_jm().format(item.time),
               ),
               trailing: IconButton(
                 icon: const Icon(Icons.delete_outline, color: Colors.white38),
